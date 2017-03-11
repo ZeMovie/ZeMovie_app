@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 })
 
 export class AppComponent {
-  title = 'MovieShowTime';
   private user$: Observable<Account | boolean>;
   private loggedIn$: Observable<boolean>;
   private login: boolean;
