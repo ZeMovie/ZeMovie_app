@@ -20,8 +20,9 @@
             <li><a href="/register">Sign in</a></li>
         </ul>
         <ul *ngIf="(user$ | async)" class="nav navbar-nav navbar-right">
-           <li style="color:white;">Welcome, ({{ ( user$ | async ).fullName }}).<li>
-           <li role="presentation" (click)="logout()"><a href="#">Logout</a></li>
+            <li style="color:white;">Welcome, ({{ ( user$ | async ).fullName }}).
+                <li>
+                    <li role="presentation" (click)="logout()"><a href="#">Logout</a></li>
         </ul>
     </div>
     <!--/.nav-collapse -->
@@ -33,3 +34,10 @@
     </ul>
 </div>
 <sp-authport></sp-authport>
+<div class="container">
+    <movies></movies>
+</div>
+
+<footer>
+    <p>&copy; 2017 ZeMovie</p>
+</footer>
