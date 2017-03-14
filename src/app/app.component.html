@@ -17,7 +17,7 @@
         </form>
         <ul *ngIf="!(user$ | async)" class="nav navbar-nav navbar-right">
             <li><a href="#about">login</a></li>
-            <li><a href="#contact">Sign in</a></li>
+            <li><a href="/register">Sign in</a></li>
         </ul>
         <ul *ngIf="(user$ | async)" class="nav navbar-nav navbar-right">
            <li style="color:white;">Welcome, ({{ ( user$ | async ).fullName }}).<li>
@@ -27,10 +27,9 @@
     <!--/.nav-collapse -->
 </nav>
 <div *ngIf="(user$ | async)" class="row text-center">
-    Welcome, ({{ ( user$ | async ).surname }}).
+    Welcome, ({{ ( user$ | async ).customData.grade}}).
     <ul class="nav nav-pills nav-stacked text-centered">
         <li role="presentation" (click)="logout()"><a href="#">Logout</a></li>
     </ul>
 </div>
-
 <sp-authport></sp-authport>

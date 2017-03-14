@@ -3,11 +3,17 @@
 var express = require('express');
 var path = require('path');
 var stormpath = require('express-stormpath');
+var cors = require('cors');
  
 /**
  * Create the Express application.
  */
 var app = express();
+
+app.use(cors({
+  origin: 'http://localhost:4200',
+  credentials: true
+}));
  
 /**
  * The 'trust proxy' setting is required if you will be deploying your

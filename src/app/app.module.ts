@@ -4,7 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { StormpathModule } from 'angular-stormpath';
+import { StormpathConfiguration, StormpathModule } from 'angular-stormpath';
+
+export function stormpathConfig(): StormpathConfiguration {
+ let spConfig: StormpathConfiguration = new StormpathConfiguration();
+ spConfig.endpointPrefix = 'http://localhost:3000';
+ return spConfig;
+}
 
 @NgModule({
   declarations: [
@@ -16,7 +22,9 @@ import { StormpathModule } from 'angular-stormpath';
     HttpModule,
 	StormpathModule
   ],
-  providers: [],
+  providers: [{
+    provide: StormpathConfiguration, useFactory: stormpathConfig
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
