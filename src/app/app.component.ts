@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MovieService } from './services/movie.service';
+import { Auth } from './services/auth.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [MovieService]
+  providers: [MovieService,Auth]
 })
 
 export class AppComponent {
-  constructor() {
-  }
+  constructor(private auth: Auth) {}
 }
