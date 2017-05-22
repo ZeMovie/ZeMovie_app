@@ -5,13 +5,6 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './components/movies/movies.component';
-import { StormpathConfiguration, StormpathModule } from 'angular-stormpath';
-
-export function stormpathConfig(): StormpathConfiguration {
- let spConfig: StormpathConfiguration = new StormpathConfiguration();
- spConfig.endpointPrefix = 'http://localhost:3000';
- return spConfig;
-}
 
 @NgModule({
   declarations: [

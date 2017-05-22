@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Stormpath, Account } from 'angular-stormpath';
 import { Observable } from 'rxjs';
 import { MovieService } from './services/movie.service';
 
