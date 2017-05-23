@@ -1,3 +1,40 @@
 .navbar-right {
-    margin-right: 0px;
+  margin-right: 0px;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.navigation {
+  margin-top: 60px;
+  display: block;
+  width: 200px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+}
+
+.navigation .nav {
+  background-color: #2a2d35;
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+.nav-category {
+  color: #FFFFFF;
+  margin-top: 10px;
+  padding: 8px 15px 8px 25px;
+  margin: 0 0;
+}
+
+.active {
+  border-left: 6px solid #f6a821;
+  color: #c0c4c8;
+}
+
+.nav-left a {
+  padding: 8px 15px 8px 19px;
+  margin: 0 0;
 }
