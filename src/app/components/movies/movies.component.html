@@ -1,0 +1,11 @@
+    <!-- Affiche les film les plus populaires-->
+    <div class="row">
+        <div *ngFor="let movie of popularList;let i=index" class="col-md-3">
+            <div *ngIf="i < 12">
+                <h3>{{movie.title}}</h3>
+                <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+                <p>{{movie.release_date}}</p>
+                <p><a class="btn btn-default" href="#" role=button>View details</a></p>
+            </div>
+        </div>
+    </div>
