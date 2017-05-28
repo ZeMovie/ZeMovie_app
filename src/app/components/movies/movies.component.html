@@ -1,4 +1,4 @@
-<div *ngIf=search class="row">
+<div *ngIf="search && search !=''" class="row">
   <div *ngFor="let movie of search;let i=index" class="col-md-3">
     <div *ngIf="i < 12">
       <h3>{{movie.title}}</h3>

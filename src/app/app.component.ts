@@ -12,7 +12,7 @@ import { Auth } from './services/auth.service';
 
 export class AppComponent {
   search: string;
-  searchRes: Array<object>;
+  searchRes: Array<Object>;
   popularList: Array<Object>;
 
   constructor(private auth: Auth, private _movieService: MovieService) { }

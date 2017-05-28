@@ -11,7 +11,7 @@ import { AppComponent } from '../../app.component';
 
 export class MoviesComponent {
   popularList: Array<Object>;
-  @Input() searchRes;
+  @Input() search;
 
   constructor(private _movieService: MovieService) {
     this._movieService.getPopular().subscribe(res => {
