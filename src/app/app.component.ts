@@ -1,7 +1,8 @@
-import { Component, Input} from '@angular/core';
+import { Component, ViewContainerRef, Input} from '@angular/core';
 import { Observable } from 'rxjs';
 import { MovieService } from './services/movie.service';
 import { Auth } from './services/auth.service';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,9 @@ export class AppComponent {
   searchRes: Array<Object>;
   popularList: Array<Object>;
 
-  constructor(private auth: Auth, private _movieService: MovieService) { }
+  constructor(private auth: Auth, private _movieService: MovieService, private toastr: ToastsManager, private _vcr: ViewContainerRef, ) {
+    this.toastr.setRootViewContainerRef(_vcr);
+  }
 
   searchMovies(search) {
     console.log(search);

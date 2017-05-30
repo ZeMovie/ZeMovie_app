@@ -1,5 +1,6 @@
 import { Injectable }      from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 // Avoid name not found warnings
 declare var Auth0Lock: any;
@@ -17,9 +18,9 @@ export class Auth {
   });
 
   //Store profile object in auth class
-  userProfile: Object;
+  userProfile;
 
-  constructor() {
+  constructor( private toastr: ToastsManager ) {
     // Set userProfile attribute of already saved profile
     this.userProfile = JSON.parse(localStorage.getItem('profile'));
 
@@ -37,6 +38,7 @@ export class Auth {
 
         localStorage.setItem('profile', JSON.stringify(profile));
         this.userProfile = profile;
+        this.toastr.success("Welcome "+ this.userProfile.nickname);
       });
     });
   }
