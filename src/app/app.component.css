@@ -4,12 +4,48 @@
 
 .navbar {
   margin-bottom: 0px;
+  height: 55px;
+  background-color: #FFFFFF;
+}
+
+.navbar-static-top {
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 1030;
+}
+
+.navbar-header {
+  height: 55px;
+}
+
+.navbar-brand {
+  width: 180px;
+  background-color: #0093ab;
+  height: 55px;
+  padding: 18px 37px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  color: #FFFFFF;
+}
+
+.navbar-form {
+    margin-top: 10px;
+    margin-left: 5px;
+    padding: 0;
+}
+
+.navbar-form input.form-control {
+    border: none;
+    box-shadow: none;
+    color: #949ba2;
 }
 
 .navigation {
-  margin-top: 60px;
+  margin-top: 55px;
   display: block;
-  width: 200px;
+  width: 180px;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -30,11 +66,22 @@
 }
 
 .active {
-  border-left: 6px solid #f6a821;
+  border-left: 6px solid #0093ab;
   color: #c0c4c8;
 }
 
 .nav-left a {
   padding: 8px 15px 8px 19px;
   margin: 0 0;
+}
+
+.container {
+  padding-top: 60px;
+  padding-left: 190px;
+  background-color: #2a2d35;
+  width: 100%;
+}
+
+a {
+  color: #949ba2;
 }

@@ -1,6 +1,6 @@
 {
   "name": "ZeMovie",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
@@ -26,6 +26,7 @@
     "angular2-jwt": "^0.2.3",
     "auth0-lock": "^10.13.0",
     "core-js": "^2.4.1",
+    "font-awesome": "^4.7.0",
     "ng2-toastr": "^4.0.1",
     "rxjs": "^5.1.0",
     "ts-helpers": "^1.1.1",

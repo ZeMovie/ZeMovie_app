@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-static-top">
+<nav class="navbar navbar-static-top">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -10,11 +10,12 @@
   </div>
   <div id="navbar" class="collapse navbar-collapse">
     <div class="navbar-form navbar-left">
-      <input type="text" #search (keyup)="searchMovies(search.value)" placeholder="Search">
+      <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+      <input type="text" class="form-control" #search (keyup)="searchMovies(search.value)" placeholder="Search">
     </div>
     <ul class="nav navbar-nav navbar-right">
       <li><a (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</a></li>
-      <li><a (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</a></li>
+      <li><a (click)="auth.logout()" *ngIf="auth.authenticated()">{{auth.userProfile.nickname}} &nbsp;<i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></a></li>
     </ul>
   </div>
   <!--/.nav-collapse -->

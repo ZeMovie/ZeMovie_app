@@ -10,6 +10,7 @@
 </div>
 <div *ngIf="!search" class="row">
   <div *ngFor="let movie of popularList;let i=index" class="col-md-3">
+      cutTitle();
     <div *ngIf="i < 12">
       <h3>{{movie.title}}</h3>
       <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
