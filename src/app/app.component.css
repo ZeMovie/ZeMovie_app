@@ -65,9 +65,10 @@
   margin: 0 0;
 }
 
-.active {
+li.active > a {
   border-left: 6px solid #0093ab;
   color: #c0c4c8;
+  padding-left: 19px;
 }
 
 .nav-left a {
@@ -78,7 +79,7 @@
 .container {
   padding-top: 60px;
   padding-left: 190px;
-  background-color: #2a2d35;
+  background-color: #2f313a;
   width: 100%;
 }
 

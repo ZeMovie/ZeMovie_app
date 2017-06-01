@@ -23,10 +23,19 @@
 
 <div class="navigation">
   <ul class="nav nav-left">
-    <li class=" active"><a href="">Home</a></li>
-    <li class=" nav-category"><a href="profil">Profil</a></li>
-    <li class=" nav-category">Options</li>
-    <li class=" nav-category">Blabla</li>
+    <li class="nav-category">MY MOVIES</li>
+    <li><a href="watchlist">Watchlist</a></li>
+    <li><a href="watched">Watched!</a></li>
+    <li><a href="archives">Archives</a></li>
+    <li class="nav-category">AGENDA</li>
+    <li><a href="feature">Feature film</a></li>
+    <li class="nav-category">EXPLORER</li>
+    <li class="active"><a href="popular">Popular</a></li>
+    <li><a href="recommended">Recommended</a></li>
+    <li class="nav-category">Profil</li>
+    <li><a href="profil">Parameters</a></li>
+    <li><a href="friends">Friends</a></li>
+    <li *ngIf="auth.authenticated()"><a (click)="auth.logout()">log Out</a></li>
   </ul>
 </div>
 
