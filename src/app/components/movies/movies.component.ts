@@ -18,5 +18,6 @@ export class MoviesComponent {
     this._movieService.getPopular().subscribe(res => {
       this.popularList = res.results;
     })
+    this._searchService.searchRes = null;
   }
 }
