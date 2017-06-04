@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import {MovieService} from '../../services/movie.service';
+import {SearchService} from '../../services/search.service';
 import { AppComponent } from '../../app.component';
 
 @Component({
@@ -11,9 +12,9 @@ import { AppComponent } from '../../app.component';
 
 export class MoviesComponent {
   popularList: Array<Object>;
-  @Input() search;
+  search: Array<Object>;
 
-  constructor(private _movieService: MovieService) {
+  constructor(private _movieService: MovieService, private _searchService: SearchService) {
     this._movieService.getPopular().subscribe(res => {
       this.popularList = res.results;
     })

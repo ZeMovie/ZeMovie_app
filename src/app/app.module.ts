@@ -10,7 +10,6 @@ import {ToastOptions} from 'ng2-toastr';
 
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { ProfilComponent } from './components/profil/profil.component';
 
@@ -18,7 +17,6 @@ import { ProfilComponent } from './components/profil/profil.component';
     declarations: [
         AppComponent,
         MoviesComponent,
-        HomeComponent,
         ProfilComponent,
     ],
     imports: [

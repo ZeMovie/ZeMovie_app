@@ -20,7 +20,7 @@ export class Auth {
   //Store profile object in auth class
   userProfile;
 
-  constructor( private toastr: ToastsManager ) {
+  constructor(private toastr: ToastsManager) {
     // Set userProfile attribute of already saved profile
     this.userProfile = JSON.parse(localStorage.getItem('profile'));
 
@@ -38,7 +38,7 @@ export class Auth {
 
         localStorage.setItem('profile', JSON.stringify(profile));
         this.userProfile = profile;
-        this.toastr.success("Welcome "+ this.userProfile.nickname);
+        this.toastr.success("Welcome " + this.userProfile.nickname);
       });
     });
   }

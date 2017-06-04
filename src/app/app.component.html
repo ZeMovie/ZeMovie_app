@@ -6,16 +6,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-    <a class="navbar-brand" href="/">Ze Movie</a>
+    <a class="navbar-brand" href="/">Ze Movie<span>V.1.0</span></a>
   </div>
   <div id="navbar" class="collapse navbar-collapse">
     <div class="navbar-form navbar-left">
       <i class="fa fa-search fa-lg" aria-hidden="true"></i>
-      <input type="text" class="form-control" #search (keyup)="searchMovies(search.value)" placeholder="Search">
+      <input type="text" class="form-control" #search (keyup)="this._searchService.search(search.value)" placeholder="Search">
     </div>
     <ul class="nav navbar-nav navbar-right">
       <li><a (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</a></li>
-      <li><a (click)="auth.logout()" *ngIf="auth.authenticated()">{{auth.userProfile.nickname}} &nbsp;<i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></a></li>
+      <li><a (click)="auth.logout()" *ngIf="auth.authenticated() && auth.userProfile">{{auth.userProfile.nickname}} &nbsp;<i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></a></li>
     </ul>
   </div>
   <!--/.nav-collapse -->
@@ -24,24 +24,23 @@
 <div class="navigation">
   <ul class="nav nav-left">
     <li class="nav-category">MY MOVIES</li>
-    <li><a href="watchlist">Watchlist</a></li>
-    <li><a href="watched">Watched!</a></li>
-    <li><a href="archives">Archives</a></li>
+    <li><a [routerLink]="['watchlist']" skipLocationChange>Watchlist</a></li>
+    <li><a [routerLink]="['watched']" skipLocationChange>Watched!</a></li>
+    <li><a [routerLink]="['archives']" skipLocationChange>Archives</a></li>
     <li class="nav-category">AGENDA</li>
-    <li><a href="feature">Feature film</a></li>
+    <li><a [routerLink]="['feature']" skipLocationChange>Feature film</a></li>
     <li class="nav-category">EXPLORER</li>
-    <li class="active"><a href="popular">Popular</a></li>
-    <li><a href="recommended">Recommended</a></li>
-    <li class="nav-category">Profil</li>
-    <li><a href="profil">Parameters</a></li>
-    <li><a href="friends">Friends</a></li>
+    <li class="active"><a [routerLink]="['popular']" skipLocationChange>Popular</a></li>
+    <li><a [routerLink]="['recommended']" skipLocationChange>Recommended</a></li>
+    <li *ngIf="auth.authenticated()" class="nav-category">Profil</li>
+    <li *ngIf="auth.authenticated()"><a [routerLink]="['profil']" skipLocationChange>Parameters</a></li>
+    <li *ngIf="auth.authenticated()"><a [routerLink]="['friends']" skipLocationChange>Friends</a></li>
     <li *ngIf="auth.authenticated()"><a (click)="auth.logout()">log Out</a></li>
   </ul>
 </div>
 
 <div class="container">
   <router-outlet></router-outlet>
-  <movies [search]="searchRes"></movies>
 </div>
 
 <footer>
