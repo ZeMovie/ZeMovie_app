@@ -1,5 +1,5 @@
 <section id="movies">
-  <div *ngIf="this._searchService.searchRes && this._searchService.searchRes !=''" class="row">
+  <div *ngIf="this._searchService.searchRes" class="row">
     <div *ngFor="let movie of this._searchService.searchRes;let i=index" class="col-sm-6 col-md-4 col-lg-3">
       <div *ngIf="i < showed">
         <h1>{{movie.title}}</h1>

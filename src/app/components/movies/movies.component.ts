@@ -15,7 +15,7 @@ export class MoviesComponent {
   search: Array<Object>;
   showed: number = 12;
 
-  constructor(private _movieService: MovieService, private _searchService: SearchService) {
+  constructor(public _movieService: MovieService, public _searchService: SearchService) {
     this._movieService.getPopular().subscribe(res => {
       this.popularList = res.results;
     })

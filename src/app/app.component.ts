@@ -17,7 +17,7 @@ export class AppComponent {
   searchRes: Array<Object>;
   popularList: Array<Object>;
 
-  constructor(private auth: Auth, private _movieService: MovieService, private toastr: ToastsManager, private _vcr: ViewContainerRef, private _searchService: SearchService ) {
+  constructor(public auth: Auth, public _movieService: MovieService, public toastr: ToastsManager, public _vcr: ViewContainerRef, public _searchService: SearchService) {
     this.toastr.setRootViewContainerRef(_vcr);
   }
 }
