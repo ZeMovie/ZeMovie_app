@@ -1,6 +1,7 @@
 import { Injectable }      from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { Router }        from '@angular/router';
 
 // Avoid name not found warnings
 declare var Auth0Lock: any;
@@ -20,7 +21,7 @@ export class Auth {
   //Store profile object in auth class
   userProfile;
 
-  constructor(private toastr: ToastsManager) {
+  constructor(private toastr: ToastsManager, private router: Router) {
     // Set userProfile attribute of already saved profile
     this.userProfile = JSON.parse(localStorage.getItem('profile'));
 
@@ -59,5 +60,6 @@ export class Auth {
     localStorage.removeItem('id_token');
     localStorage.removeItem('profile');
     this.userProfile = undefined;
+    this.router.navigate([''])
   }
 }

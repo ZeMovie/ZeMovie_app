@@ -13,11 +13,16 @@ import { AppComponent } from '../../app.component';
 export class MoviesComponent {
   popularList: Array<Object>;
   search: Array<Object>;
+  showed: number = 12;
 
   constructor(private _movieService: MovieService, private _searchService: SearchService) {
     this._movieService.getPopular().subscribe(res => {
       this.popularList = res.results;
     })
     this._searchService.searchRes = null;
+  }
+
+  more(){
+    this.showed = this.showed + 6;
   }
 }

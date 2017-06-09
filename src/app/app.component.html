@@ -1,5 +1,5 @@
 <nav class="navbar navbar-static-top">
-  <div class="navbar-header">
+  <div class="navbar-header hidden-xs">
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -8,34 +8,33 @@
         </button>
     <a class="navbar-brand" href="/">Ze Movie<span>V.1.0</span></a>
   </div>
-  <div id="navbar" class="collapse navbar-collapse">
-    <div class="navbar-form navbar-left">
-      <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+  <div id="navbar" class="nav">
+    <div class="navbar-form navbar-left form-group">
+      <i class="fa fa-search fa-lg icons" aria-hidden="true"></i>
       <input type="text" class="form-control" #search (keyup)="this._searchService.search(search.value)" placeholder="Search">
     </div>
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right form-group">
       <li><a (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</a></li>
-      <li><a (click)="auth.logout()" *ngIf="auth.authenticated() && auth.userProfile">{{auth.userProfile.nickname}} &nbsp;<i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></a></li>
+      <li><a (click)="auth.logout()" *ngIf="auth.authenticated() && auth.userProfile">{{auth.userProfile.nickname}} &nbsp;<i class="fa fa-sign-out fa-lg icons" aria-hidden="true"></i></a></li>
     </ul>
   </div>
   <!--/.nav-collapse -->
 </nav>
 
-<div class="navigation">
+<div class="navigation hidden-xs">
   <ul class="nav nav-left">
-    <li class="nav-category">MY MOVIES</li>
-    <li><a [routerLink]="['watchlist']" skipLocationChange>Watchlist</a></li>
-    <li><a [routerLink]="['watched']" skipLocationChange>Watched!</a></li>
-    <li><a [routerLink]="['archives']" skipLocationChange>Archives</a></li>
-    <li class="nav-category">AGENDA</li>
-    <li><a [routerLink]="['feature']" skipLocationChange>Feature film</a></li>
-    <li class="nav-category">EXPLORER</li>
-    <li class="active"><a [routerLink]="['popular']" skipLocationChange>Popular</a></li>
-    <li><a [routerLink]="['recommended']" skipLocationChange>Recommended</a></li>
-    <li *ngIf="auth.authenticated()" class="nav-category">Profil</li>
-    <li *ngIf="auth.authenticated()"><a [routerLink]="['profil']">Parameters</a></li>
-    <li *ngIf="auth.authenticated()"><a [routerLink]="['friends']" skipLocationChange>Friends</a></li>
-    <li *ngIf="auth.authenticated()"><a (click)="auth.logout()">log Out</a></li>
+    <li class="nav-category text-uppercase">explorer</li>
+    <li routerLinkActive="active"><a routerLink="popular" skipLocationChange>Popular</a></li>
+    <li routerLinkActive="active"><a routerLink="recommended" skipLocationChange>Recommended</a></li>
+    <li *ngIf="auth.authenticated()" class="nav-category text-uppercase">my movies</li>
+    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="watchlist" skipLocationChange>Watchlist</a></li>
+    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="watched" skipLocationChange>Watched!</a></li>
+    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="archives" skipLocationChange>Archives</a></li>
+    <li *ngIf="auth.authenticated()" class="nav-category text-uppercase">agenda</li>
+    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="feature" skipLocationChange>Feature film</a></li>
+    <li *ngIf="auth.authenticated()" class="nav-category text-uppercase">Profil</li>
+    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="profil" skipLocationChange>Settings</a></li>
+    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a (click)="auth.logout()">log Out</a></li>
   </ul>
 </div>
 

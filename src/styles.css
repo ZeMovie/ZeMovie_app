@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-  color: #949ba2;
-      background-color: #24262d;
+  color: white;
+  background-image: linear-gradient(to right, #1e2931, #354753);
+  font-family: 'Open Sans', sans-serif;
+  height:100%;
 }

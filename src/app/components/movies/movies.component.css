@@ -1,36 +1,99 @@
-img {
-  width: 100%;
-  max-height: 383px;
-
-  box-shadow: 0 0 40px -5px black;
-}
-
 .row {
   text-align: center;
 }
 
-h3 {
+h1 {
   font-size: 13px;
   font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .thumbnail {
-  width: auto;
-  margin : auto;
+  width: 100%;
+  max-width: 259px;
+  margin: auto;
   padding: 0;
   border: none;
   border-radius: 0px;
+  box-shadow: 0 0 40px -5px black;
 }
 
-.note{
+.note {
   background: #0093ab;
   border-radius: 50%;
-  width:50px;
+  width: 50px;
   height: 50px;
   line-height: 50px;
   color: #fff;
   POSITION: ABSOLUTE;
-  top: 190px;
-  left: 317px;
+  top: 42%;
+  margin: 0px;
+  left: 90%;
   box-shadow: 0 0 40px -5px black;
+}
+
+.poster {
+  display: inline-block;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  margin: auto;
+  width: 0px;
+  height: 0px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: .4s ease;
+  transition: .4s ease;
+  opacity: 0;
+}
+
+.poster:hover .overlay {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+span {
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  margin: auto;
+  width: 200px;
+  height: 30px;
+  line-height: 30px;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: transform .5s ease, opacity .7s ease;
+  transition: transform .5s ease, opacity .7s ease;
+}
+
+.poster:hover span {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: transform .5s ease, opacity 1.3s ease;
+  transition: transform .5s ease, opacity 1.3s ease;
+}
+
+.icons {
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white;
+}
+
+.more {
+  text-align: left;
+  cursor: pointer;
 }
