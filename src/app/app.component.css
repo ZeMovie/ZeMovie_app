@@ -1,3 +1,17 @@
+/***********
+*   RESET  *
+************/
+*{
+  /* Supprimer toute les marges */
+  margin: 0;
+  padding: 0;
+
+  /* Intégrer les paddings et border dans la taille des blocs */
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
 .navbar-right {
   margin-right: 0px;
 }

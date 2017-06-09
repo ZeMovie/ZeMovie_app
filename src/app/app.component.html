@@ -33,7 +33,7 @@
     <li class="active"><a [routerLink]="['popular']" skipLocationChange>Popular</a></li>
     <li><a [routerLink]="['recommended']" skipLocationChange>Recommended</a></li>
     <li *ngIf="auth.authenticated()" class="nav-category">Profil</li>
-    <li *ngIf="auth.authenticated()"><a [routerLink]="['profil']" skipLocationChange>Parameters</a></li>
+    <li *ngIf="auth.authenticated()"><a [routerLink]="['profil']">Parameters</a></li>
     <li *ngIf="auth.authenticated()"><a [routerLink]="['friends']" skipLocationChange>Friends</a></li>
     <li *ngIf="auth.authenticated()"><a (click)="auth.logout()">log Out</a></li>
   </ul>

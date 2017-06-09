@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+/*************************
+*         GENERAL        *
+**************************/
+section#profile-settings{
+  font-family: 'Montserrat', sans-serif;
+  background: #E6E6E6;
+}
+
+/*************************
+*       Profil Info      *
+**************************/
+#profile-settings .bg-profile-banner{
+  padding: 0px;
+  width: 100%;
+  max-height: 30rem;
+
+  overflow: hidden;
+}
+
+#profile-settings img.profile-banner{
+  width: 100%;
+}
+
+#profile-settings #profile-general{
+  background: #FAFAFA;
+}
+
+#profile-settings .profile-info{
+  padding-top: 5em;
+  text-align: center;
+}
+#profile-settings .profile-info{
+
+}
+#profile-settings .profile-avatar{
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  position: absolute;
+  top: -80px;
+  left: 55px;
+}
+
+#profile-settings img.avatar{
+  width: 150px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border: 3px solid white;
+}
+
+#profile-settings #porfile-picture{
+  margin: auto;
+}
+
+/* Modification FONT AWESOME */
+#profile-settings .fa-map-marker,
+#profile-settings .fa-film,
+#profile-settings .fa-heart,
+#profile-settings .fa-users,
+#profile-settings .fa-line-chart,
+#profile-settings .fa-cog{
+    margin-right: 10px;
+}
+
+/*************************
+*       Profil Nav       *
+**************************/
+#profile-settings .profile-navigation{
+  background: #FFFFFF;
+}
+#profile-settings div:nth-child(3){
+  padding:0;
+}
+#profile-settings .profile-navigation li{
+  border: solid 1px #F3F3F3;
+}
+#profile-settings .profile-navigation li.active>a{
+  background: #FAFAFA;
+  color: #CCCCCC;
+}

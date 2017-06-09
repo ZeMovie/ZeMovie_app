@@ -1,6 +1,8 @@
 img {
   width: 100%;
   max-height: 383px;
+
+  box-shadow: 0 0 40px -5px black;
 }
 
 .row {
@@ -15,4 +17,20 @@ h3 {
 .thumbnail {
   width: auto;
   margin : auto;
+  padding: 0;
+  border: none;
+  border-radius: 0px;
+}
+
+.note{
+  background: #0093ab;
+  border-radius: 50%;
+  width:50px;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  POSITION: ABSOLUTE;
+  top: 190px;
+  left: 317px;
+  box-shadow: 0 0 40px -5px black;
 }
