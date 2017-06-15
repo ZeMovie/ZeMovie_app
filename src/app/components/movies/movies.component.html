@@ -1,28 +1,40 @@
 <section id="movies">
   <div *ngIf="this._searchService.searchRes" class="row">
+    <h1>Search</h1>
     <div *ngFor="let movie of this._searchService.searchRes;let i=index" class="col-sm-6 col-md-4 col-lg-3">
-      <div *ngIf="i < showed">
-        <h1>{{movie.title}}</h1>
+      <div *ngIf="i < showed" class="movie">
         <div class="poster">
           <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
-          <div class="overlay"></div>
-          <span><i class="fa fa-search fa-2x icons" aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-plus fa-2x icons" aria-hidden="true"></i></span>
+          <div class="overlay">
+            <div class="navmovie" id='nav{{i}}'>
+              <a href="#" class="nav-item nav-count-1"><i class="fa fa-cart-plus" aria-hidden="true"></i><span class="invisible">add</span></a>
+              <a href="#" class="nav-item nav-count-2"><i class="fa fa-calendar" aria-hidden="true"></i><span class="invisible">calendar</span></a>
+              <a (click)="this.navMovie('nav'+i)" class="mask">+</a>
+            </div>
+          </div>
           <p class="note">{{movie.vote_average}}</p>
         </div>
+        <h2>{{movie.title}}</h2>
       </div>
     </div>
     <div *ngIf="this._searchService.searchRes && showed < this._searchService.searchRes.length" class="more col-md-12" (click)="this.more()">More..</div>
   </div>
   <div *ngIf="!this._searchService.searchRes" class="row">
+    <h1>Popular Movies</h1>
     <div *ngFor="let movie of popularList;let i=index" class="col-sm-6 col-md-4 col-lg-3">
-      <div *ngIf="i < showed">
-        <h1>{{movie.title}}</h1>
+      <div *ngIf="i < showed" class="movie">
         <div class="poster">
           <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
-          <div class="overlay"></div>
-          <span><i class="fa fa-search fa-2x icons" aria-hidden="true"></i>&nbsp;&nbsp;<i class="fa fa-plus fa-2x icons" aria-hidden="true"></i></span>
+          <div class="overlay">
+            <div class="navmovie" id='nav{{i}}'>
+              <a href="#" class="nav-item nav-count-1"><i class="fa fa-cart-plus" aria-hidden="true"></i><span class="invisible">add</span></a>
+              <a href="#" class="nav-item nav-count-2"><i class="fa fa-calendar" aria-hidden="true"></i><span class="invisible">calendar</span></a>
+              <a (click)="this.navMovie('nav'+i)" class="mask">+</a>
+            </div>
+          </div>
           <p class="note">{{movie.vote_average}}</p>
         </div>
+        <h2>{{movie.title}}</h2>
       </div>
     </div>
     <div *ngIf="popularList && showed < popularList.length" class="more col-md-12" (click)="this.more()">More..</div>

@@ -20,4 +20,14 @@ export class AppComponent {
   constructor(public auth: Auth, public _movieService: MovieService, public toastr: ToastsManager, public _vcr: ViewContainerRef, public _searchService: SearchService) {
     this.toastr.setRootViewContainerRef(_vcr);
   }
+
+  ExtendSearchbar() {
+      document.getElementById("inputSearch").classList.add("clickedInput");
+      document.getElementById("inputSearch").classList.add("focus");
+      document.getElementById("inputSearch").focus();
+    }
+
+  hideSearchbar() {
+    document.getElementById("inputSearch").classList.remove("clickedInput");
+  }
 }

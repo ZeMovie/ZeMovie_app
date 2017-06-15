@@ -22,7 +22,15 @@ export class MoviesComponent {
     this._searchService.searchRes = null;
   }
 
-  more(){
-    this.showed = this.showed + 6;
+  more() {
+    this.showed = this.showed + 4;
+  }
+
+  navMovie(idmenu) {
+    if (document.getElementById(idmenu).classList.contains("active")) {
+      document.getElementById(idmenu).classList.remove("active");
+    } else {
+      document.getElementById(idmenu).classList.add("active");
+    }
   }
 }
