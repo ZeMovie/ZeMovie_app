@@ -26,6 +26,7 @@ h2 {
 
 .thumbnail {
   width: 100%;
+  max-width: 259px;
   margin: auto;
   padding: 0;
   border: none;

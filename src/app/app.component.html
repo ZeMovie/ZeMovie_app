@@ -4,11 +4,11 @@
 </div>
 
 <div class="navigation hidden-xs">
-  <a class="navbar-brand" href="/">Ze Movie<span>V.1.0</span></a>
+  <a class="navbar-brand" href="">Ze Movie<span>V.1.0</span></a>
   <ul class="nav nav-left">
     <li class="nav-category text-uppercase">explorer</li>
     <li routerLinkActive="active"><a routerLink="popular" skipLocationChange>Popular</a></li>
-    <li routerLinkActive="active"><a routerLink="recommended" skipLocationChange>Recommended</a></li>
+    <li routerLinkActive="active"><a routerLink="upcoming" skipLocationChange>Upcoming</a></li>
     <li *ngIf="auth.authenticated()" class="nav-category text-uppercase">my movies</li>
     <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="watchlist" skipLocationChange>Watchlist</a></li>
     <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="watched" skipLocationChange>Watched!</a></li>
