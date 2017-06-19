@@ -7,7 +7,6 @@ import { Auth } from '../../services/auth.service';
 import { AppComponent } from '../../app.component';
 
 @Component({
-  moduleId: module.id,
   selector: 'movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css']

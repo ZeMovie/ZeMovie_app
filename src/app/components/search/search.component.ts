@@ -7,7 +7,6 @@ import { Auth } from '../../services/auth.service';
 import { AppComponent } from '../../app.component';
 
 @Component({
-  moduleId: module.id,
   selector: 'search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
