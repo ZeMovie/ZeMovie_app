@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { Router }        from '@angular/router';
 
 import {MovieService} from '../../services/movie.service';
@@ -21,7 +21,6 @@ export class SearchComponent {
   constructor(public _movieService: MovieService, public _searchService: SearchService, private router: Router, private auth: Auth) {
   }
 
-
   more() {
     this.showed = this.showed + 4;
   }
@@ -31,6 +30,22 @@ export class SearchComponent {
       document.getElementById(idmenu).classList.remove("active");
     } else {
       document.getElementById(idmenu).classList.add("active");
+    }
+  }
+
+  checkMovie(idmovie) {
+    if (this.auth.userProfile.user_metadata) {
+      if (this.auth.userProfile.user_metadata.watchlist) {
+        var mymovies = this.auth.userProfile.user_metadata.watchlist;
+        for (let movie of mymovies) {
+          if (movie == idmovie) {
+            return true;
+          }
+        }
+        return false;
+      } else {
+        return false;
+      }
     }
   }
 }
