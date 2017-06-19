@@ -9,12 +9,21 @@ import { CustomOption } from './custom-toastr';
 import {ToastOptions} from 'ng2-toastr';
 import { AuthGuard }  from './services/auth-guard.service';
 import { Auth } from './services/auth.service';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
+import { Http, RequestOptions } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { ProfilComponent } from './components/profil/profil.component';
+import { SearchComponent } from './components/search/search.component';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
+
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig({
+    tokenGetter: (() => localStorage.getItem('id_token'))
+  }), http, options);
+}
 
 @NgModule({
     declarations: [
@@ -22,6 +31,7 @@ import { WatchlistComponent } from './components/watchlist/watchlist.component';
         MoviesComponent,
         ProfilComponent,
         WatchlistComponent,
+        SearchComponent,
     ],
     imports: [
         BrowserModule,
@@ -35,6 +45,7 @@ import { WatchlistComponent } from './components/watchlist/watchlist.component';
     providers: [
         AuthGuard,
         Auth,
+        {provide: AuthHttp, useFactory: authHttpServiceFactory, deps: [Http, RequestOptions]},
         appRoutingProviders,
         {provide: ToastOptions, useClass: CustomOption}
     ],

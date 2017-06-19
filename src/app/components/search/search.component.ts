@@ -8,26 +8,17 @@ import { AppComponent } from '../../app.component';
 
 @Component({
   moduleId: module.id,
-  selector: 'movies',
-  templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.css']
+  selector: 'search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
 
-export class MoviesComponent {
+export class SearchComponent {
   list: Array<Object>;
   search: Array<Object>;
   showed: number = 12;
 
   constructor(public _movieService: MovieService, public _searchService: SearchService, private router: Router, private auth: Auth) {
-    if (this.router.url === '/upcoming') {
-      this._movieService.upcoming().subscribe(res => {
-        this.list = res.results;
-      })
-    } else {
-      this._movieService.getPopular().subscribe(res => {
-        this.list = res.results;
-      })
-    }
   }
 
 
@@ -40,22 +31,6 @@ export class MoviesComponent {
       document.getElementById(idmenu).classList.remove("active");
     } else {
       document.getElementById(idmenu).classList.add("active");
-    }
-  }
-
-  checkMovie(idmovie) {
-    if (this.auth.userProfile.user_metadata) {
-      if (this.auth.userProfile.user_metadata.watchlist) {
-        var mymovies = this.auth.userProfile.user_metadata.watchlist;
-        for (let movie of mymovies) {
-          if (movie == idmovie) {
-            return true;
-          }
-        }
-        return false;
-      } else {
-        return false;
-      }
     }
   }
 }

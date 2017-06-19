@@ -16,12 +16,29 @@ export class WatchlistComponent {
   list: any;
 
   constructor(public auth: Auth, public _searchService: SearchService) {
-    this.idmovie = auth.userProfile.user_metadata.watchlist;
-    console.log(this.idmovie);
+    if (this.auth.userProfile.user_metadata) {
+      if (auth.userProfile.user_metadata.watchlist) {
+        this.idmovie = auth.userProfile.user_metadata.watchlist;
+        for (let value of this.idmovie) {
+          this._searchService.searchMovie(value).subscribe(res => {
+            this.result.push(res);
+          })
+        }
+      }
+    }else{
+      auth.userProfile.user_metadata = new Object();
+      auth.userProfile.user_metadata.watchlist = [];
+      console.log(auth.userProfile.user_metadata.watchlist);
+      this.result = null;
+    }
+  }
+
+  newWatchList() {
+    this.result = [];
+    this.idmovie = this.auth.userProfile.user_metadata.watchlist;
     for (let value of this.idmovie) {
       this._searchService.searchMovie(value).subscribe(res => {
-        this.list = this.result.push(res);
-        console.log(value);
+        this.result.push(res);
       })
     }
   }

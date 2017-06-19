@@ -14,9 +14,9 @@ export class SearchService {
 
   search(search) {
     if (search != "") {
-      this.router.navigate([''])
       this.searchMovies(search).subscribe(res => {
         this.searchRes = res.results;
+        this.router.navigate(['search'], {skipLocationChange: true});
       })
     } else {
         this.searchRes = null;
