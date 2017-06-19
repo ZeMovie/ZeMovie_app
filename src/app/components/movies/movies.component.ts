@@ -17,22 +17,84 @@ export class MoviesComponent {
   list: Array<Object>;
   search: Array<Object>;
   showed: number = 12;
+  maxpages: number;
 
   constructor(public _movieService: MovieService, public _searchService: SearchService, private router: Router, private auth: Auth) {
     if (this.router.url === '/upcoming') {
+      this._movieService.page = 1;
       this._movieService.upcoming().subscribe(res => {
         this.list = res.results;
+        this.maxpages = res.total_pages;
+
       })
     } else {
+      this._movieService.page = 1;
       this._movieService.getPopular().subscribe(res => {
         this.list = res.results;
+        this.maxpages = res.total_pages;
       })
     }
   }
 
 
-  more() {
-    this.showed = this.showed + 4;
+  more () {
+      this._movieService.page = this._movieService.page +1;
+      if (this.router.url === '/upcoming') {
+        this._movieService.upcoming().subscribe(res => {
+          this.list = res.results;
+          this.maxpages = res.total_pages;
+        })
+      } else {
+        this._movieService.getPopular().subscribe(res => {
+          this.list = res.results;
+          this.maxpages = res.total_pages;
+        })
+      }
+  }
+
+  less () {
+    this._movieService.page = this._movieService.page -1;
+    if (this.router.url === '/upcoming') {
+      this._movieService.upcoming().subscribe(res => {
+        this.list = res.results;
+        this.maxpages = res.total_pages;
+      })
+    } else {
+      this._movieService.getPopular().subscribe(res => {
+        this.list = res.results;
+        this.maxpages = res.total_pages;
+      })
+    }
+  }
+
+  firstpage () {
+    this._movieService.page = 1;
+    if (this.router.url === '/upcoming') {
+      this._movieService.upcoming().subscribe(res => {
+        this.list = res.results;
+        this.maxpages = res.total_pages;
+      })
+    } else {
+      this._movieService.getPopular().subscribe(res => {
+        this.list = res.results;
+        this.maxpages = res.total_pages;
+      })
+    }
+  }
+
+  end () {
+    this._movieService.page = this.maxpages;
+    if (this.router.url === '/upcoming') {
+      this._movieService.upcoming().subscribe(res => {
+        this.list = res.results;
+        this.maxpages = res.total_pages;
+      })
+    } else {
+      this._movieService.getPopular().subscribe(res => {
+        this.list = res.results;
+        this.maxpages = res.total_pages;
+      })
+    }
   }
 
   navMovie(idmenu) {

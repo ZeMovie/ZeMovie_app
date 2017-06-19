@@ -50,6 +50,7 @@ h2 {
   border: none;
   border-radius: 0px;
   box-shadow: 0 0 40px -5px black;
+  background-color: transparent;
 }
 
 .note {
@@ -120,8 +121,13 @@ span {
 }
 
 .more {
-  text-align: left;
   cursor: pointer;
+  display:inline-block;
+  margin: 15px;
+}
+
+.pagination {
+  text-align: center;
 }
 
 

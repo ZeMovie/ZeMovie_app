@@ -2,7 +2,7 @@
   <div class="row">
     <h1>Search</h1>
     <div *ngFor="let movie of this._searchService.searchRes;let i=index" class="col-sm-6 col-md-4 col-lg-3">
-      <div *ngIf="i < showed" class="movie">
+      <div class="movie">
         <div class="poster">
           <img class="loading" src="/assets/poster.jpg">
           <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
@@ -19,6 +19,12 @@
         <h2>{{movie.title}}</h2>
       </div>
     </div>
-    <div *ngIf="this._searchService.searchRes && showed < this._searchService.searchRes.length" class="more col-md-12" (click)="this.more()">More..</div>
+    <div class="pagination col-md-12">
+      <div *ngIf="this._searchService.searchRes && this._searchService.page != 1" class="more" (click)="this.firstpage()"><i class="fa fa-fast-backward fa-lg" aria-hidden="true"></i></div>
+      <div *ngIf="this._searchService.searchRes && this._searchService.page != 1" class="more" (click)="this.less()"><i class="fa fa-step-backward fa-lg" aria-hidden="true"></i></div>
+      {{this._searchService.page}}
+      <div *ngIf="this._searchService.searchRes && this._searchService.page < this._searchService.maxpages" class="more" (click)="this.more()"><i class="fa fa-step-forward fa-lg" aria-hidden="true"></i></div>
+      <div *ngIf="this._searchService.searchRes" class="more" (click)="this.end()"><i class="fa fa-fast-forward fa-lg" aria-hidden="true"></i></div>
+    </div>
   </div>
 </section>

@@ -14,7 +14,7 @@ export class WatchlistComponent {
   idmovie: Array<number>;
   result: Array<object> = [];
   list: any;
-
+  
   constructor(public auth: Auth, public _searchService: SearchService) {
     if (this.auth.userProfile.user_metadata) {
       if (auth.userProfile.user_metadata.watchlist) {

@@ -16,13 +16,40 @@ import { AppComponent } from '../../app.component';
 export class SearchComponent {
   list: Array<Object>;
   search: Array<Object>;
-  showed: number = 12;
 
   constructor(public _movieService: MovieService, public _searchService: SearchService, private router: Router, private auth: Auth) {
   }
 
-  more() {
-    this.showed = this.showed + 4;
+  more () {
+      this._searchService.page = this._searchService.page +1;
+      this._searchService.searchMovies(this._searchService.searchInput).subscribe(res => {
+        this._searchService.searchRes = res.results;
+          this._searchService.maxpages = res.total_pages;
+        })
+  }
+
+  less () {
+    this._searchService.page = this._searchService.page -1;
+    this._searchService.searchMovies(this._searchService.searchInput).subscribe(res => {
+      this._searchService.searchRes = res.results;
+        this._searchService.maxpages = res.total_pages;
+      })
+  }
+
+  firstpage () {
+    this._searchService.page = 1;
+    this._searchService.searchMovies(this._searchService.searchInput).subscribe(res => {
+      this._searchService.searchRes = res.results;
+        this._searchService.maxpages = res.total_pages;
+      })
+  }
+
+  end () {
+    this._searchService.page = this._searchService.maxpages;
+    this._searchService.searchMovies(this._searchService.searchInput).subscribe(res => {
+      this._searchService.searchRes = res.results;
+        this._searchService.maxpages = res.total_pages;
+      })
   }
 
   navMovie(idmenu) {

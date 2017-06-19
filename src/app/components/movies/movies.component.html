@@ -2,7 +2,7 @@
   <div class="row">
     <h1>Popular Movies</h1>
     <div *ngFor="let movie of list;let i=index" class="col-sm-6 col-md-4 col-lg-3">
-      <div *ngIf="i < showed" class="movie">
+      <div class="movie">
         <div class="poster">
           <img class="loading" src="/assets/poster.jpg">
           <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
@@ -19,6 +19,12 @@
         <h2>{{movie.title}}</h2>
       </div>
     </div>
-    <div *ngIf="list && showed < list.length" class="more col-md-12" (click)="this.more()">More..</div>
+    <div class="pagination col-md-12">
+      <div *ngIf="list && this._movieService.page != 1" class="more" (click)="this.firstpage()"><i class="fa fa-fast-backward fa-lg" aria-hidden="true"></i></div>
+      <div *ngIf="list && this._movieService.page != 1" class="more" (click)="this.less()"><i class="fa fa-step-backward fa-lg" aria-hidden="true"></i></div>
+      {{this._movieService.page}}
+      <div *ngIf="list && this._movieService.page < maxpages" class="more" (click)="this.more()"><i class="fa fa-step-forward fa-lg" aria-hidden="true"></i></div>
+      <div *ngIf="list" class="more" (click)="this.end()"><i class="fa fa-fast-forward fa-lg" aria-hidden="true"></i></div>
+    </div>
   </div>
 </section>
