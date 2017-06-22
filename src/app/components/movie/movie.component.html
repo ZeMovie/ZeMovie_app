@@ -1,0 +1,31 @@
+<div *ngIf="movie && credit">
+  <img src="http://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}" class="back"/>
+      <img src="http://image.tmdb.org/t/p/w300{{movie.poster_path}}" alt="cover" class="cover" />
+    <div class="hero">
+      <img src="http://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}"/>
+      <div class="details">
+        <div class="title1">{{movie.title}}</div>
+        <span class="likes"><i class="fa fa-heart" aria-hidden="true"></i> {{movie.vote_count}} likes</span>
+      </div>
+      <!-- end details -->
+    </div>
+    <!-- end hero -->
+    <div class="description">
+      <div class="column1">
+        <span *ngFor="let genre of movie.genres" class="tag">{{genre.name}}</span>
+      </div>
+      <!-- end column1 -->
+      <div class="column2">
+        <p>{{movie.overview}}</p>
+        <div class="avatars">
+          <a *ngFor="let actor of credit" href="#" title="{{actor.name}}">
+            <img *ngIf="actor.profile_path != null" src="https://image.tmdb.org/t/p/w45{{actor.profile_path}}"/>
+          </a>
+        </div>
+        <!-- end avatars -->
+      </div>
+      <!-- end column2 -->
+    </div>
+    <!-- end description -->
+</div>
+<!-- end movie-card -->

@@ -3,6 +3,7 @@ import { Auth } from '../../services/auth.service';
 import {SearchService} from '../../services/search.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'watchlist',
   templateUrl: './watchlist.component.html',
   styleUrls: ['./watchlist.component.css']

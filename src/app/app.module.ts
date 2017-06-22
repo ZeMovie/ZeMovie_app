@@ -15,6 +15,7 @@ import { Http, RequestOptions } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './components/movies/movies.component';
+import { MovieComponent } from './components/movie/movie.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { SearchComponent } from './components/search/search.component';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
@@ -29,6 +30,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     declarations: [
         AppComponent,
         MoviesComponent,
+        MovieComponent,
         ProfilComponent,
         WatchlistComponent,
         SearchComponent,

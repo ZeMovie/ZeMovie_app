@@ -7,6 +7,7 @@ import { Auth } from '../../services/auth.service';
 import { AppComponent } from '../../app.component';
 
 @Component({
+  moduleId: module.id,
   selector: 'search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
@@ -24,6 +25,7 @@ export class SearchComponent {
       this._searchService.searchMovies(this._searchService.searchInput).subscribe(res => {
         this._searchService.searchRes = res.results;
           this._searchService.maxpages = res.total_pages;
+          document.getElementById('movies').scrollIntoView(true);
         })
   }
 
@@ -32,6 +34,7 @@ export class SearchComponent {
     this._searchService.searchMovies(this._searchService.searchInput).subscribe(res => {
       this._searchService.searchRes = res.results;
         this._searchService.maxpages = res.total_pages;
+        document.getElementById('movies').scrollIntoView(true);
       })
   }
 
@@ -40,6 +43,7 @@ export class SearchComponent {
     this._searchService.searchMovies(this._searchService.searchInput).subscribe(res => {
       this._searchService.searchRes = res.results;
         this._searchService.maxpages = res.total_pages;
+        document.getElementById('movies').scrollIntoView(true);
       })
   }
 
@@ -48,6 +52,7 @@ export class SearchComponent {
     this._searchService.searchMovies(this._searchService.searchInput).subscribe(res => {
       this._searchService.searchRes = res.results;
         this._searchService.maxpages = res.total_pages;
+        document.getElementById('movies').scrollIntoView(true);
       })
   }
 

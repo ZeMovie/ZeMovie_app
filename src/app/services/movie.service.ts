@@ -27,4 +27,9 @@ export class MovieService {
     return this._jsonp.get('https://api.themoviedb.org/3/movie/upcoming?callback=JSONP_CALLBACK&language=' + navigator.language+ '&page='+this.page +'&region='+navigator.language + '&api_key=' + this.apikey)
       .map(res => res.json());
   }
+
+  getCredit(idmovie: number) {
+    return this._jsonp.get('https://api.themoviedb.org/3/movie/' + idmovie + '/credits?api_key=' + this.apikey +'&callback=JSONP_CALLBACK')
+      .map(res => res.json());
+  }
 }

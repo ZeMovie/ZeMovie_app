@@ -7,6 +7,7 @@ import { Auth } from '../../services/auth.service';
 import { AppComponent } from '../../app.component';
 
 @Component({
+  moduleId: module.id,
   selector: 'movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css']
@@ -42,11 +43,13 @@ export class MoviesComponent {
         this._movieService.upcoming().subscribe(res => {
           this.list = res.results;
           this.maxpages = res.total_pages;
+          document.getElementById('movies').scrollIntoView(true);
         })
       } else {
         this._movieService.getPopular().subscribe(res => {
           this.list = res.results;
           this.maxpages = res.total_pages;
+          document.getElementById('movies').scrollIntoView(true);
         })
       }
   }
@@ -57,11 +60,13 @@ export class MoviesComponent {
       this._movieService.upcoming().subscribe(res => {
         this.list = res.results;
         this.maxpages = res.total_pages;
+        document.getElementById('movies').scrollIntoView(true);
       })
     } else {
       this._movieService.getPopular().subscribe(res => {
         this.list = res.results;
         this.maxpages = res.total_pages;
+        document.getElementById('movies').scrollIntoView(true);
       })
     }
   }
@@ -72,11 +77,13 @@ export class MoviesComponent {
       this._movieService.upcoming().subscribe(res => {
         this.list = res.results;
         this.maxpages = res.total_pages;
+        document.getElementById('movies').scrollIntoView(true);
       })
     } else {
       this._movieService.getPopular().subscribe(res => {
         this.list = res.results;
         this.maxpages = res.total_pages;
+        document.getElementById('movies').scrollIntoView(true);
       })
     }
   }
@@ -87,11 +94,13 @@ export class MoviesComponent {
       this._movieService.upcoming().subscribe(res => {
         this.list = res.results;
         this.maxpages = res.total_pages;
+        document.getElementById('movies').scrollIntoView(true);
       })
     } else {
       this._movieService.getPopular().subscribe(res => {
         this.list = res.results;
         this.maxpages = res.total_pages;
+        document.getElementById('movies').scrollIntoView(true);
       })
     }
   }

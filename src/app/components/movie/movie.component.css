@@ -1,0 +1,106 @@
+.hero {
+  width: 100%;
+  height: 400px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-transform: skewY(-2.2deg);
+  transform: skewY(-2.2deg);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-backface-visibility: hidden;
+  top: 0;
+  left: 0;
+}
+
+.hero img {
+  width: 100%;
+  position: absolute;
+}
+
+.back {
+  max-width: calc(100% - 200px);
+  width: 100%;
+  position: absolute;
+  margin-top: -32px;
+  z-index: -10;
+  opacity: 0.06;
+}
+
+.cover {
+  position: absolute;
+  top: 135px;
+  left: 262px;
+  z-index: 2;
+  width: 380px;
+}
+
+.details {
+  padding: 255px 0 0 460px;
+  transform: skewY(+2.2deg);
+}
+
+.details .title1 {
+  color: white;
+  font-size: 44px;
+  margin-bottom: 13px;
+  position: relative;
+}
+
+.fa-heart {
+  color:red;
+}
+
+.description {
+  bottom: 0px;
+  height: 200px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #B1B0AC;
+}
+
+.column1 {
+  padding-left: 62px;
+  display: block;
+  padding-top: 307px;
+  width: 442px;
+  float: left;
+  text-align: center;
+}
+
+.tag {
+  background: white;
+  border-radius: 10px;
+  padding: 3px 8px;
+  font-size: 14px;
+  margin-right: 4px;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.tag:hover {
+  background: #ddd;
+}
+
+.column2 {
+  padding-left: 442px;
+  padding-top: 30px;
+  margin-left: 20px;
+}
+
+.avatars {
+  margin-top: 23px;
+}
+
+.avatars img {
+  cursor: pointer;
+}
+
+.avatars img:hover {
+  opacity: 0.6;
+}
+
+.avatars a:hover {
+  text-decoration: none;
+}
