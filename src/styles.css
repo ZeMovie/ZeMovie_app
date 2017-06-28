@@ -12,3 +12,11 @@ body {
 a {
   cursor: pointer;
 }
+
+.carousel-indicators {
+  bottom:-30px;
+}
+
+.carousel-inner {
+  text-align: center;
+}

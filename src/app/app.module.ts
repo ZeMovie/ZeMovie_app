@@ -11,6 +11,7 @@ import { AuthGuard }  from './services/auth-guard.service';
 import { Auth } from './services/auth.service';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Http, RequestOptions } from '@angular/http';
+import { CarouselModule,CollapseModule,PaginationModule,TooltipModule } from 'ngx-bootstrap';
 
 
 import { AppComponent } from './app.component';
@@ -42,7 +43,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         JsonpModule,
         routing,
         BrowserAnimationsModule,
-        ToastModule.forRoot()
+        ToastModule.forRoot(),
+        CarouselModule.forRoot(),
+        CollapseModule.forRoot(),
+        PaginationModule.forRoot(),
+        TooltipModule.forRoot(),
     ],
     providers: [
         AuthGuard,
