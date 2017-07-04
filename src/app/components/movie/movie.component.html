@@ -18,11 +18,12 @@
     <div class="column2">
       <p>{{movie.overview}}</p>
       <carousel class="avatars">
-        <ng-container *ngFor="let actor of credit;let i=index">
-          <slide *ngIf="actor.profile_path != null" title="{{actor.name}}">
-            <img src="https://image.tmdb.org/t/p/w185{{actor.profile_path}}" />
+          <slide *ngFor="let slide of actors;let i=index">
+            <ng-container *ngFor="let actor of actors[i]">
+                <img *ngIf="actor.profile_path != null" src="https://image.tmdb.org/t/p/w185{{actor.profile_path}}" title="{{actor.name}}"/>
+                <img *ngIf="actor.profile_path == null" src="/assets/poster.jpg" title="{{actor.name}}"/>
+            </ng-container>
           </slide>
-        </ng-container>
       </carousel>
       <!-- end avatars -->
     </div>

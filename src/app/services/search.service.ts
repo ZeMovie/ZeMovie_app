@@ -20,7 +20,7 @@ export class SearchService {
       this.searchMovies(search).subscribe(res => {
         this.searchRes = res.results;
         this.maxpages = res.total_pages;
-        this.router.navigate(['search'], {skipLocationChange: true});
+        this.router.navigate(['search']);
       })
       this.searchInput = search;
     } else {

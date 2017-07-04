@@ -7,16 +7,16 @@
   <a class="navbar-brand" href="">Ze Movie<span>V.1.0</span></a>
   <ul class="nav nav-left">
     <li class="nav-category text-uppercase">explorer</li>
-    <li routerLinkActive="active"><a routerLink="popular" skipLocationChange>Popular</a></li>
-    <li routerLinkActive="active"><a routerLink="upcoming" skipLocationChange>Upcoming</a></li>
+    <li routerLinkActive="active"><a routerLink="popular">Popular</a></li>
+    <li routerLinkActive="active"><a routerLink="upcoming">Upcoming</a></li>
     <li *ngIf="auth.authenticated()" class="nav-category text-uppercase">my movies</li>
-    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="watchlist" skipLocationChange>Watchlist</a></li>
-    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="watched" skipLocationChange>Watched!</a></li>
-    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="archives" skipLocationChange>Archives</a></li>
+    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="watchlist">Watchlist</a></li>
+    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="watched">Watched!</a></li>
+    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="archives">Archives</a></li>
     <li *ngIf="auth.authenticated()" class="nav-category text-uppercase">agenda</li>
-    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="feature" skipLocationChange>Feature film</a></li>
+    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="feature">Feature film</a></li>
     <li *ngIf="auth.authenticated()" class="nav-category text-uppercase">Profil</li>
-    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="profil" skipLocationChange>Settings</a></li>
+    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="profil">Settings</a></li>
     <li *ngIf="auth.authenticated()" routerLinkActive="active"><a (click)="auth.logout()">log Out</a></li>
     <li *ngIf="!auth.authenticated()" routerLinkActive="active" id="login"><a (click)="auth.login()">log In</a></li>
   </ul>

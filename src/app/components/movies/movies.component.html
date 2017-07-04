@@ -4,9 +4,6 @@
     <div *ngFor="let movie of list;let i=index" class="col-sm-6 col-md-4 col-lg-3">
       <div class="movie">
         <div class="poster">
-          <a routerLink="/movie/{{movie.id}}" skipLocationChange>
-            <img class="loading" src="/assets/poster.jpg">
-          </a>
           <div class="overlay">
             <div *ngIf="auth.authenticated()" class="navmovie" id='nav{{i}}'>
               <a *ngIf="checkMovie(movie.id)" (click)="this.auth.suppMovie(movie.id)" class="nav-item nav-count-1"><i class="fa fa-trash" aria-hidden="true"></i><span class="invisible">Remove</span></a>
@@ -15,7 +12,8 @@
               <a (click)="this.navMovie('nav'+i)" class="mask">+</a>
             </div>
           </div>
-          <a routerLink="/movie/{{movie.id}}" skipLocationChange>
+          <img class="loading" src="/assets/poster.jpg">
+          <a routerLink="/movie/{{movie.id}}">
             <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
           </a>
           <p class="note">{{movie.vote_average}}</p>

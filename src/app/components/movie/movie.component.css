@@ -95,6 +95,8 @@
 
 .avatars img {
   cursor: pointer;
+  width: 135px;
+  height: 200px;
 }
 
 .avatars img:hover {

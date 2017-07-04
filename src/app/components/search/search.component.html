@@ -12,10 +12,8 @@
               <a (click)="this.navMovie('nav'+i)" class="mask">+</a>
             </div>
           </div>
-          <a routerLink="/movie/{{movie.id}}" skipLocationChange>
-            <img class="loading" src="/assets/poster.jpg">
-          </a>
-          <a routerLink="/movie/{{movie.id}}" skipLocationChange>
+          <img class="loading" src="/assets/poster.jpg">
+          <a routerLink="/movie/{{movie.id}}">
             <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
           </a>
           <p class="note">{{movie.vote_average}}</p>
