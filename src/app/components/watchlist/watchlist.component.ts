@@ -25,7 +25,7 @@ export class WatchlistComponent {
           })
         }
       }
-    }else{
+    } else {
       auth.userProfile.user_metadata = new Object();
       auth.userProfile.user_metadata.watchlist = [];
       console.log(auth.userProfile.user_metadata.watchlist);
@@ -48,6 +48,32 @@ export class WatchlistComponent {
       document.getElementById(idmenu).classList.remove("active");
     } else {
       document.getElementById(idmenu).classList.add("active");
+    }
+  }
+
+  // Verification de la date pour la sortie
+  checkDate(release_date, range, option) {
+    var todayDate: any = new Date();
+    var releaseDate: any = new Date(release_date);
+    var difference = Math.round((releaseDate - todayDate) / 86400000); // (1000 * 3600 * 24) = (milliseconde par seconde * seconde par heure * heure par journée)
+
+    console.log(release_date);
+
+    if (option == "-") {
+      if (difference <= range) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+    else {
+      if (difference >= range) {
+        return true;
+      }
+      else {
+        return false;
+      }
     }
   }
 }

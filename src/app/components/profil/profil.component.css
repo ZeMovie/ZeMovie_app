@@ -41,12 +41,14 @@ section#profile-settings{
   position: absolute;
   top: -80px;
   left: 55px;
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #fff;
 }
 
 #profile-settings img.avatar{
   width: 150px;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
   border: 3px solid white;
 }
 
