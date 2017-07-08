@@ -10,8 +10,10 @@ const Auth0Lock = require('auth0-lock').default
 
 @Injectable()
 export class Auth {
+  region: string = navigator.language.split('-')[0];
   // Configure Auth0
   lock = new Auth0Lock('CfuBl46dOLqlFVhDVTJQMDTXr8ToBM6R', 'zemovie.eu.auth0.com', {
+    language: this.region,
     theme: {
       primaryColor: "#0093ab"
     },

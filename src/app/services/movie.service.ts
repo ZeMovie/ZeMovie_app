@@ -11,6 +11,7 @@ export class MovieService {
   year: number = new Date().getFullYear();
   newYear: number;
   page: number =1;
+  region: string = navigator.language.split('-')[0];
 
 
   constructor(private _jsonp: Jsonp, private auth: Auth, private router: Router) {
@@ -24,7 +25,7 @@ export class MovieService {
   }
 
   upcoming() {
-    return this._jsonp.get('https://api.themoviedb.org/3/movie/upcoming?callback=JSONP_CALLBACK&language='+navigator.language+'&page='+this.page+'&region='+navigator.language+'&api_key='+this.apikey)
+    return this._jsonp.get('https://api.themoviedb.org/3/movie/upcoming?callback=JSONP_CALLBACK&language='+navigator.language+'&page='+this.page+'&region='+this.region+'&api_key='+this.apikey)
       .map(res => res.json());
   }
 

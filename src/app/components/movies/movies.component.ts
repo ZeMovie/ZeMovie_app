@@ -23,7 +23,6 @@ export class MoviesComponent {
     if (document.getElementById("menu").classList.contains("mobile-menu")) {
       app.mobileMenu('close')
     }
-
     if (this.router.url === '/upcoming') {
       this._movieService.page = 1;
       this._movieService.upcoming().subscribe(res => {
