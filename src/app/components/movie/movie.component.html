@@ -1,10 +1,14 @@
-<div *ngIf="movie && credit">
-  <img src="http://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}" class="back" />
-  <img src="http://image.tmdb.org/t/p/w300{{movie.poster_path}}" alt="cover" class="cover" />
+<div *ngIf="movie">
+  <div class="background">
+    <img src="http://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}" class="back" />
+    <img src="http://image.tmdb.org/t/p/w300{{movie.poster_path}}" alt="cover" class="cover" />
+  </div>
   <div class="hero">
     <img src="http://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}" />
     <div class="details">
       <div class="title1">{{movie.title}}</div>
+      <span *ngIf="runtime" id="runtime">{{runtime}}</span>
+      <span *ngIf="runtime" class="separator">/</span>
       <span class="likes"><i class="fa fa-heart" aria-hidden="true"></i> {{movie.vote_count}} likes</span>
     </div>
     <!-- end details -->
@@ -12,18 +16,20 @@
   <!-- end hero -->
   <div class="description">
     <div class="column1">
-      <span *ngFor="let genre of movie.genres" class="tag">{{genre.name}}</span>
+      <span *ngFor="let genre of movie.genres" class="tag">{{genre.name}}<span class="separator">,</span></span>
     </div>
     <!-- end column1 -->
     <div class="column2">
-      <p>{{movie.overview}}</p>
+      <p class="release"> release: {{movie.release_date}}</p>
+      <p class="overview_title"> Overview: </p>
+      <p class="overview">{{movie.overview}}</p>
       <carousel class="avatars">
-          <slide *ngFor="let slide of actors;let i=index">
-            <ng-container *ngFor="let actor of actors[i]">
-                <img *ngIf="actor.profile_path != null" src="https://image.tmdb.org/t/p/w185{{actor.profile_path}}" title="{{actor.name}}"/>
-                <img *ngIf="actor.profile_path == null" src="/assets/poster.jpg" title="{{actor.name}}"/>
-            </ng-container>
-          </slide>
+        <slide *ngFor="let slide of actors;let i=index">
+          <ng-container *ngFor="let actor of actors[i]">
+            <img *ngIf="actor.profile_path != null" src="https://image.tmdb.org/t/p/w185{{actor.profile_path}}" title="{{actor.name}}" />
+            <img *ngIf="actor.profile_path == null" src="/assets/poster.jpg" title="{{actor.name}}" />
+          </ng-container>
+        </slide>
       </carousel>
       <!-- end avatars -->
     </div>

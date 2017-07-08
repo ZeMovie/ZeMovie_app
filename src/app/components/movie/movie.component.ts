@@ -19,19 +19,24 @@ export class MovieComponent implements OnInit {
   countimages: number = 0;
   actor: Array<object> = [];
   actors: Array<object> = [];
+  runtime: string;
 
 
   constructor(private router: ActivatedRoute, private _searchService: SearchService, private _movieService: MovieService) { }
 
   ngOnInit() {
+    if (screen.height <= 768) {
+      this.nbimage = 2;
+    }
     this.router.params.subscribe((params) => {
       let id = params['id'];
-      this._searchService.searchMovie(id).subscribe(res => {
-        this.movie = res;
-      })
-      this._movieService.getCredit(id).subscribe(res => {
+      this._movieService.getMovieDetails(id).subscribe(res => {
         /* Recuperation des acteurs du film */
-        this.credit = res.cast;
+        this.movie = res;
+        this.credit = res.credits.cast;
+        if (res.runtime){
+        this.runtime = Math.round(res.runtime/60) + "h" + (res.runtime - (Math.round(res.runtime/60) * 60)) +"min";
+        }
         /* Calcul du nb de slide necessaire pour afficher nbimage par slide*/
         this.nbslide = Math.round(this.credit.length / this.nbimage);
         /* creation d'un tableau d'object actors en organisant les acteurs par parquet de nbimage*/

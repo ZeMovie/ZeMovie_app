@@ -20,3 +20,9 @@ a {
 .carousel-inner {
   text-align: center;
 }
+
+@media (max-width: 768px) {
+.carousel-indicators {
+  display:none;
+}
+}

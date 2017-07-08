@@ -189,7 +189,7 @@ a {
 
 /*Responsive Styles*/
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 768px) {
   /*formate le menu pour mobile*/
   .navigation {
     display: none;
