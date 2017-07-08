@@ -1,6 +1,6 @@
 <section id="movies">
   <div class="row">
-    <h1 *ngIf="(this.router.url == '/popular') || (this.router.url == '')">Popular Movies</h1>
+    <h1 *ngIf="(this.router.url == '/popular') || (this.router.url == '/')">Popular Movies</h1>
     <h1 *ngIf="(this.router.url == '/upcoming')">Upcoming Movies</h1>
     <div *ngFor="let movie of list;let i=index" class="col-sm-6 col-md-4 col-lg-3">
       <div class="movie">
