@@ -3,15 +3,15 @@ import { tokenNotExpired, AuthHttp, AuthConfig} from 'angular2-jwt';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { Router }        from '@angular/router';
 import {Http, RequestOptions} from '@angular/http';
+import { Auth0Lock } from 'auth0-lock';
 
 // Avoid name not found warnings
-declare var Auth0Lock: any;
+const Auth0Lock = require('auth0-lock').default
 
 @Injectable()
 export class Auth {
   // Configure Auth0
   lock = new Auth0Lock('CfuBl46dOLqlFVhDVTJQMDTXr8ToBM6R', 'zemovie.eu.auth0.com', {
-    language: navigator.language,
     theme: {
       primaryColor: "#0093ab"
     },

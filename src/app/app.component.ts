@@ -21,7 +21,7 @@ export class AppComponent {
     this.toastr.setRootViewContainerRef(_vcr);
   }
 
-  ExtendSearchbar() {
+  extendSearchbar() {
       document.getElementById("inputSearch").classList.add("clickedInput");
       document.getElementById("inputSearch").classList.add("focus");
       document.getElementById("inputSearch").focus();
@@ -29,5 +29,18 @@ export class AppComponent {
 
   hideSearchbar() {
     document.getElementById("inputSearch").classList.remove("clickedInput");
+  }
+
+  mobileMenu(state) {
+    console.log(state);
+    if (state == "open") {
+    document.getElementById("menu").classList.add("mobile-menu");
+    document.getElementById("close-menu").classList.remove("hide");
+    document.getElementById("open-menu").classList.add("hide");
+  } else {
+    document.getElementById("menu").classList.remove("mobile-menu");
+    document.getElementById("close-menu").classList.add("hide");
+    document.getElementById("open-menu").classList.remove("hide");
+  }
   }
 }

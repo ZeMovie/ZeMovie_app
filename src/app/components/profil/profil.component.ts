@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Auth } from '../../services/auth.service';
+import { AppComponent } from '../../app.component';
 
 @Component({
   moduleId: module.id,
@@ -10,6 +11,9 @@ import { Auth } from '../../services/auth.service';
 
 export class ProfilComponent {
 
-  constructor(public auth: Auth) {
+  constructor(public auth: Auth, private app: AppComponent) {
+    if (document.getElementById("menu").classList.contains("mobile-menu")) {
+      app.mobileMenu('close')
+    }
   }
 }

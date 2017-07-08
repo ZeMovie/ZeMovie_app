@@ -1,9 +1,11 @@
 <div class="searchbar">
   <input type="text" class="btn-extended" id="inputSearch" (blur)="hideSearchbar()" #search (keyup)="this._searchService.search(search.value)" placeholder="Search">
-  <div class="btn-search" (click)="ExtendSearchbar()"></div>
+  <div class="btn-search" (click)="extendSearchbar()"></div>
 </div>
+<a (click)="mobileMenu('open')"><i class="fa fa-bars fa-2x button-menu" id="open-menu"aria-hidden="true"></i></a>
+<a (click)="mobileMenu('close')"><i class="fa fa-times fa-2x button-menu hide" id="close-menu" aria-hidden="true"></i></a>
 
-<div class="navigation hidden-xs">
+<div class="navigation" id="menu">
   <a class="navbar-brand" href="">Ze Movie<span>V.1.0</span></a>
   <ul class="nav nav-left">
     <li class="nav-category text-uppercase">explorer</li>

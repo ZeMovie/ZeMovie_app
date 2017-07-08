@@ -106,7 +106,26 @@
 }
 
 
-/*********************************/
+/************* MENU ********************/
+
+
+/*bouton pour ouvrir le menu mobile*/
+
+.button-menu {
+  position: absolute;
+  top: 36px;
+  left: 25px;
+  color: #239f80;
+  z-index: 99;
+  display: none;
+}
+
+
+/*cache le bouton pour fermer le menu tant qu'il n'est pas ouvert*/
+
+.hide {
+  display: none;
+}
 
 .navigation {
   position: fixed;
@@ -164,5 +183,37 @@ a {
 @media (max-width: 768px) {
   .container {
     margin-left: 0px;
+  }
+}
+
+
+/*Responsive Styles*/
+
+@media screen and (max-width: 760px) {
+  /*formate le menu pour mobile*/
+  .navigation {
+    display: none;
+    width: 100%;
+    background-image: linear-gradient(to right, #161d23, #28536f);
+    text-align: center;
+    z-index: 98;
+  }
+  .navigation .nav {
+    padding-top: 5px;
+  }
+  /*affiche le menu mobile*/
+  .mobile-menu {
+    display: block;
+  }
+  /*formate le bouton pour fermer le menu mobile*/
+  #close-menu {
+    display: block;
+  }
+  /*formate le bouton pour afficher le menu mobile*/
+  .button-menu {
+    display: block;
+  }
+  .mobile-menu .navbar-brand {
+    display: none;
   }
 }

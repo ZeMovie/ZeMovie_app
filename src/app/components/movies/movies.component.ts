@@ -19,13 +19,16 @@ export class MoviesComponent {
   showed: number = 12;
   maxpages: number;
 
-  constructor(public _movieService: MovieService, public _searchService: SearchService, private router: Router, private auth: Auth) {
+  constructor(public _movieService: MovieService, public _searchService: SearchService, public router: Router, private auth: Auth, private app: AppComponent) {
+    if (document.getElementById("menu").classList.contains("mobile-menu")) {
+      app.mobileMenu('close')
+    }
+
     if (this.router.url === '/upcoming') {
       this._movieService.page = 1;
       this._movieService.upcoming().subscribe(res => {
         this.list = res.results;
         this.maxpages = res.total_pages;
-
       })
     } else {
       this._movieService.page = 1;
@@ -35,7 +38,6 @@ export class MoviesComponent {
       })
     }
   }
-
 
   more () {
       this._movieService.page = this._movieService.page +1;

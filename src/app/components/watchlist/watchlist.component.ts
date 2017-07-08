@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Auth } from '../../services/auth.service';
 import {SearchService} from '../../services/search.service';
+import { AppComponent } from '../../app.component';
 
 @Component({
   moduleId: module.id,
@@ -15,7 +16,11 @@ export class WatchlistComponent {
   result: Array<object> = [];
   list: any;
 
-  constructor(public auth: Auth, public _searchService: SearchService) {
+  constructor(public auth: Auth, public _searchService: SearchService,  private app: AppComponent) {
+    if (document.getElementById("menu").classList.contains("mobile-menu")) {
+      app.mobileMenu('close')
+    }
+
     if (this.auth.userProfile.user_metadata) {
       if (auth.userProfile.user_metadata.watchlist) {
         this.idmovie = auth.userProfile.user_metadata.watchlist;
