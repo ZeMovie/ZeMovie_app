@@ -15,8 +15,13 @@ export class WatchlistComponent {
   idmovie: Array<number>;
   result: Array<object> = [];
   list: any;
+  innerHeight: any;
+  innerWidth: any;
 
   constructor(public auth: Auth, public _searchService: SearchService,  private app: AppComponent) {
+    this.innerHeight = (window.screen.height);
+    this.innerWidth = (window.screen.width);
+
     if (document.getElementById("menu").classList.contains("mobile-menu")) {
       app.mobileMenu('close')
     }

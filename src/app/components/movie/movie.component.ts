@@ -22,20 +22,21 @@ export class MovieComponent implements OnInit {
   runtime: string;
 
 
-  constructor(private router: ActivatedRoute, private _searchService: SearchService, private _movieService: MovieService) { }
-
-  ngOnInit() {
+  constructor(private router: ActivatedRoute, private _searchService: SearchService, private _movieService: MovieService) {
     if (screen.height <= 768) {
       this.nbimage = 2;
     }
+  }
+
+  ngOnInit() {
     this.router.params.subscribe((params) => {
       let id = params['id'];
       this._movieService.getMovieDetails(id).subscribe(res => {
         /* Recuperation des acteurs du film */
         this.movie = res;
         this.credit = res.credits.cast;
-        if (res.runtime){
-        this.runtime = Math.round(res.runtime/60) + "h" + (res.runtime - (Math.round(res.runtime/60) * 60)) +"min";
+        if (res.runtime) {
+          this.runtime = Math.round(res.runtime / 60) + "h" + (res.runtime - (Math.round(res.runtime / 60) * 60)) + "min";
         }
         /* Calcul du nb de slide necessaire pour afficher nbimage par slide*/
         this.nbslide = Math.round(this.credit.length / this.nbimage);
@@ -43,7 +44,7 @@ export class MovieComponent implements OnInit {
         for (var i = 0; i < this.nbslide; i++) {
           for (var j = 0; j < this.nbimage; j++) {
             if (this.credit[this.countimages]) {
-                this.actor[j] = this.credit[this.countimages];
+              this.actor[j] = this.credit[this.countimages];
               this.countimages++;
             }
           }

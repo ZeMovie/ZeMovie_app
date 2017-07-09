@@ -12,9 +12,10 @@
               <a (click)="this.navMovie('nav'+i)" class="mask">+</a>
             </div>
           </div>
-          <img class="loading" src="/assets/poster.jpg">
           <a routerLink="/movie/{{movie.id}}">
-            <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+            <img class="loading" src="/assets/poster.jpg">
+            <img *ngIf="movie.backdrop_path && innerHeight <= 768" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.backdrop_path}}">
+            <img *ngIf="movie.poster_path && innerHeight > 768" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
           </a>
           <p class="note">{{movie.vote_average}}</p>
         </div>

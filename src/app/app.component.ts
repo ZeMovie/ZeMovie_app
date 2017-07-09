@@ -32,7 +32,6 @@ export class AppComponent {
   }
 
   mobileMenu(state) {
-    console.log(state);
     if (state == "open") {
     document.getElementById("menu").classList.add("mobile-menu");
     document.getElementById("close-menu").classList.remove("hide");

@@ -3,23 +3,24 @@
     <h1>Watchlist</h1>
 
     <!-- Affiche les films déjà sorties-->
-    <h2>Already out :</h2>
+    <h2 class="section">Already out :</h2>
     <ng-container *ngFor="let movie of result;let i=index">
       <div class="movie" *ngIf="checkDate(movie.release_date, 0, '-')">
         <div class="col-sm-6 col-md-3 col-lg-2">
           <div class="poster">
-            <img class="loading" src="/assets/poster.jpg">
             <div class="overlay">
               <div class="navmovie" id='nav{{i}}'>
                 <a (click)="this.auth.suppMovie(movie.id);newWatchList()" class="nav-item nav-count-1"><i class="fa fa-trash" aria-hidden="true"></i><span class="invisible">Remove</span></a>
               </div>
             </div>
             <a routerLink="/movie/{{movie.id}}">
-            <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
-          </a>
+              <img class="loading" src="/assets/poster.jpg">
+              <img *ngIf="movie.backdrop_path && innerHeight <= 768" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.backdrop_path}}">
+              <img *ngIf="movie.poster_path && innerHeight > 768" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+            </a>
             <p class="note">{{movie.vote_average}}</p>
           </div>
-          <h2>{{movie.title}}</h2>
+          <h2 class="title">{{movie.title}}</h2>
         </div>
       </div>
     </ng-container>
@@ -27,23 +28,24 @@
 
   <!-- Affiche les films - 30jours -->
   <div class="row">
-    <h2>Release under 30 days :</h2>
+    <h2 class="section">Release under 30 days :</h2>
     <ng-container *ngFor="let movie of result;let i=index">
       <div class="movie" *ngIf="checkDate(movie.release_date, 30, '-') && checkDate(movie.release_date, 0, '+')">
         <div class="col-sm-6 col-md-3 col-lg-2">
           <div class="poster">
-            <img class="loading" src="/assets/poster.jpg">
             <div class="overlay">
               <div class="navmovie" id='nav{{i}}'>
                 <a (click)="this.auth.suppMovie(movie.id);newWatchList()" class="nav-item nav-count-1"><i class="fa fa-trash" aria-hidden="true"></i><span class="invisible">Remove</span></a>
               </div>
             </div>
             <a routerLink="/movie/{{movie.id}}">
-            <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
-          </a>
+              <img class="loading" src="/assets/poster.jpg">
+              <img *ngIf="movie.backdrop_path && innerHeight <= 768" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.backdrop_path}}">
+              <img *ngIf="movie.poster_path && innerHeight > 768" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+            </a>
             <p class="note">{{movie.vote_average}}</p>
           </div>
-          <h2>{{movie.title}}</h2>
+          <h2 class="title">{{movie.title}}</h2>
         </div>
       </div>
     </ng-container>
@@ -51,23 +53,24 @@
 
   <!-- Affiche les films + 30jours -->
   <div class="row">
-    <h2>Release above 30 days :</h2>
+    <h2 class="section">Release above 30 days :</h2>
     <ng-container *ngFor="let movie of result;let i=index">
       <div class="movie" *ngIf="checkDate(movie.release_date, 30, '+')">
         <div class="col-sm-6 col-md-3 col-lg-2">
           <div class="poster">
-            <img class="loading" src="/assets/poster.jpg">
             <div class="overlay">
               <div class="navmovie" id='nav{{i}}'>
                 <a (click)="this.auth.suppMovie(movie.id);newWatchList()" class="nav-item nav-count-1"><i class="fa fa-trash" aria-hidden="true"></i><span class="invisible">Remove</span></a>
               </div>
             </div>
             <a routerLink="/movie/{{movie.id}}">
-            <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
-          </a>
+              <img class="loading" src="/assets/poster.jpg">
+              <img *ngIf="movie.backdrop_path && innerHeight <= 768" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.backdrop_path}}">
+              <img *ngIf="movie.poster_path && innerHeight > 768" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+            </a>
             <p class="note">{{movie.vote_average}}</p>
           </div>
-          <h2>{{movie.title}}</h2>
+          <h2 class="title">{{movie.title}}</h2>
         </div>
       </div>
     </ng-container>

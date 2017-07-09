@@ -113,8 +113,8 @@
 
 .button-menu {
   position: absolute;
-  top: 36px;
-  left: 25px;
+  top: 5px;
+  left: 5px;
   color: #239f80;
   z-index: 99;
   display: none;
@@ -180,16 +180,13 @@ a {
   color: #949ba2;
 }
 
+
+/*Responsive Styles*/
+
 @media (max-width: 768px) {
   .container {
     margin-left: 0px;
   }
-}
-
-
-/*Responsive Styles*/
-
-@media screen and (max-width: 768px) {
   /*formate le menu pour mobile*/
   .navigation {
     display: none;
@@ -199,7 +196,7 @@ a {
     z-index: 98;
   }
   .navigation .nav {
-    padding-top: 5px;
+    padding-top: 75px;
   }
   /*affiche le menu mobile*/
   .mobile-menu {
@@ -208,12 +205,35 @@ a {
   /*formate le bouton pour fermer le menu mobile*/
   #close-menu {
     display: block;
+    color: #f23363;
   }
   /*formate le bouton pour afficher le menu mobile*/
   .button-menu {
     display: block;
   }
   .mobile-menu .navbar-brand {
-    display: none;
+    width: 100%;
+  }
+  .searchbar .btn-search {
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+  }
+  .searchbar .btn-search:before {
+    top: 15px;
+    left: 15px;
+  }
+  .searchbar .btn-search:after {
+    top: 24px;
+    left: 21px;
+  }
+  .searchbar .btn-extended {
+    top: 5px;
+    right: 5px;
+    height: 40px;
+  }
+  .clickedInput {
+    width: 200px !important;
   }
 }

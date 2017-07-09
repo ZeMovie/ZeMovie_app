@@ -16,8 +16,12 @@ import { AppComponent } from '../../app.component';
 export class SearchComponent {
   list: Array<Object>;
   search: Array<Object>;
+  innerHeight: any;
+  innerWidth: any;
 
   constructor(public _movieService: MovieService, public _searchService: SearchService, private router: Router, private auth: Auth) {
+    this.innerHeight = (window.screen.height);
+    this.innerWidth = (window.screen.width);
   }
 
   more () {
