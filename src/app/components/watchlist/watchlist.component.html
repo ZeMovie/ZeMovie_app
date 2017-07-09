@@ -6,7 +6,7 @@
     <h2 class="section">Already out :</h2>
     <ng-container *ngFor="let movie of result;let i=index">
       <div class="movie" *ngIf="checkDate(movie.release_date, 0, '-')">
-        <div class="col-sm-6 col-md-3 col-lg-2">
+        <div class="col-sm-6 col-md-3 col-lg-2 mobile">
           <div class="poster">
             <div class="overlay">
               <div class="navmovie" id='nav{{i}}'>
@@ -31,7 +31,7 @@
     <h2 class="section">Release under 30 days :</h2>
     <ng-container *ngFor="let movie of result;let i=index">
       <div class="movie" *ngIf="checkDate(movie.release_date, 30, '-') && checkDate(movie.release_date, 0, '+')">
-        <div class="col-sm-6 col-md-3 col-lg-2">
+        <div class="col-sm-6 col-md-3 col-lg-2 mobile">
           <div class="poster">
             <div class="overlay">
               <div class="navmovie" id='nav{{i}}'>
@@ -56,7 +56,7 @@
     <h2 class="section">Release above 30 days :</h2>
     <ng-container *ngFor="let movie of result;let i=index">
       <div class="movie" *ngIf="checkDate(movie.release_date, 30, '+')">
-        <div class="col-sm-6 col-md-3 col-lg-2">
+        <div class="col-sm-6 col-md-3 col-lg-2 mobile">
           <div class="poster">
             <div class="overlay">
               <div class="navmovie" id='nav{{i}}'>

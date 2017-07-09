@@ -122,13 +122,25 @@ span {
 
 .more {
   cursor: pointer;
-  display: inline-block;
-  margin: 15px;
+  margin-left: 15px;
+  float: right;
 }
 
-.pagination {
-  width: 100%;
+.less {
+  cursor: pointer;
+  margin-right: 15px;
+  float: left;
+}
+
+.pagination_button {
   text-align: center;
+}
+
+.pagination_button p {
+  display: inline;
+  margin: 0;
+  position: absolute;
+  left: 48%;
 }
 
 

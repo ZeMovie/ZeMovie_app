@@ -1,7 +1,7 @@
 <section id="movies">
   <div class="row">
     <h1>Search</h1>
-    <div *ngFor="let movie of this._searchService.searchRes;let i=index" class="col-sm-6 col-md-4 col-lg-3">
+    <div *ngFor="let movie of this._searchService.searchRes;let i=index" class="col-sm-6 col-md-4 col-lg-3 mobile">
       <div class="movie">
         <div class="poster">
           <div class="overlay">
@@ -22,12 +22,12 @@
         <h2>{{movie.title}}</h2>
       </div>
     </div>
-    <div class="pagination col-md-12">
-      <div *ngIf="this._searchService.searchRes && this._searchService.page != 1" class="more" (click)="this.firstpage()"><i class="fa fa-fast-backward fa-lg" aria-hidden="true"></i></div>
-      <div *ngIf="this._searchService.searchRes && this._searchService.page != 1" class="more" (click)="this.less()"><i class="fa fa-step-backward fa-lg" aria-hidden="true"></i></div>
-      {{this._searchService.page}}
-      <div *ngIf="this._searchService.searchRes && this._searchService.page < this._searchService.maxpages" class="more" (click)="this.more()"><i class="fa fa-step-forward fa-lg" aria-hidden="true"></i></div>
-      <div *ngIf="this._searchService.searchRes && this._searchService.page != this._searchService.maxpages" class="more" (click)="this.end()"><i class="fa fa-fast-forward fa-lg" aria-hidden="true"></i></div>
-    </div>
+  </div>
+  <div class="pagination_button col-md-2 col-md-offset-5">
+    <div *ngIf="this._searchService.searchRes && this._searchService.page != 1" class="less" (click)="this.firstpage()"><i class="fa fa-fast-backward fa-lg" aria-hidden="true"></i></div>
+    <div *ngIf="this._searchService.searchRes && this._searchService.page != 1" class="less" (click)="this.less()"><i class="fa fa-step-backward fa-lg" aria-hidden="true"></i></div>
+    <p>{{this._searchService.page}}</p>
+    <div *ngIf="this._searchService.searchRes && this._searchService.page != this._searchService.maxpages" class="more" (click)="this.end()"><i class="fa fa-fast-forward fa-lg" aria-hidden="true"></i></div>
+    <div *ngIf="this._searchService.searchRes && this._searchService.page < this._searchService.maxpages" class="more" (click)="this.more()"><i class="fa fa-step-forward fa-lg" aria-hidden="true"></i></div>
   </div>
 </section>

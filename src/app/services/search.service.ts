@@ -10,6 +10,7 @@ export class SearchService {
   searchInput :string = null;
   page: number =1;
   maxpages: number;
+  region: string = navigator.language.split('-')[0];
 
   constructor(private _jsonp: Jsonp, private router: Router) {
     this.apikey = 'fa4875ab7e9a1e73ffe0829c42e00ca6';
@@ -29,7 +30,7 @@ export class SearchService {
   }
 
   searchMovies(search: string) {
-    return this._jsonp.get('https://api.themoviedb.org/3/search/movie?callback=JSONP_CALLBACK&query=' + search + '&page='+this.page +'&region='+navigator.language +'&language='+navigator.language +'&api_key=' + this.apikey)
+    return this._jsonp.get('https://api.themoviedb.org/3/search/movie?callback=JSONP_CALLBACK&query=' + search + '&page='+this.page +'&region='+this.region +'&language='+navigator.language +'&api_key=' + this.apikey)
       .map(res => res.json());
   }
 

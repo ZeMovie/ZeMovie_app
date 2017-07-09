@@ -9,7 +9,6 @@ import { Auth } from '../services/auth.service';
 export class MovieService {
   apikey: string;
   year: number = new Date().getFullYear();
-  newYear: number;
   page: number =1;
   region: string = navigator.language.split('-')[0];
 
@@ -20,7 +19,7 @@ export class MovieService {
   }
 
   getPopular() {
-    return this._jsonp.get('https://api.themoviedb.org/3/discover/movie?callback=JSONP_CALLBACK&sort_by=popularity.desc&year='+this.year+'&page='+this.page+'&region='+this.region+'&language='+navigator.language+'&api_key='+this.apikey)
+    return this._jsonp.get('https://api.themoviedb.org/3/discover/movie?callback=JSONP_CALLBACK&sort_by=popularity.desc&primary_release_year='+this.year+'&page='+this.page+'&language='+navigator.language+'&api_key='+this.apikey)
       .map(res => res.json());
   }
 

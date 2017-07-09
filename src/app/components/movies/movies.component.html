@@ -23,12 +23,12 @@
         <h2>{{movie.title}}</h2>
       </div>
     </div>
-    <div class="pagination col-md-12">
-      <div *ngIf="list && this._movieService.page != 1" class="more" (click)="this.firstpage()"><i class="fa fa-fast-backward fa-lg" aria-hidden="true"></i></div>
-      <div *ngIf="list && this._movieService.page != 1" class="more" (click)="this.less()"><i class="fa fa-step-backward fa-lg" aria-hidden="true"></i></div>
-      {{this._movieService.page}}
-      <div *ngIf="list && this._movieService.page < maxpages" class="more" (click)="this.more()"><i class="fa fa-step-forward fa-lg" aria-hidden="true"></i></div>
-      <div *ngIf="list && this._movieService.page != maxpages" class="more" (click)="this.end()"><i class="fa fa-fast-forward fa-lg" aria-hidden="true"></i></div>
-    </div>
+  </div>
+  <div class="pagination_button col-md-2 col-md-offset-5">
+    <div *ngIf="list && this._movieService.page != 1" class="less" (click)="this.firstpage()"><i class="fa fa-fast-backward fa-lg" aria-hidden="true"></i></div>
+    <div *ngIf="list && this._movieService.page != 1" class="less" (click)="this.less()"><i class="fa fa-step-backward fa-lg" aria-hidden="true"></i></div>
+    <p>{{this._movieService.page}}</p>
+    <div *ngIf="list && this._movieService.page != maxpages" class="more" (click)="this.end()"><i class="fa fa-fast-forward fa-lg" aria-hidden="true"></i></div>
+    <div *ngIf="list && this._movieService.page < maxpages" class="more" (click)="this.more()"><i class="fa fa-step-forward fa-lg" aria-hidden="true"></i></div>
   </div>
 </section>
