@@ -134,6 +134,7 @@
   left: 0;
   bottom: 0;
   top: 0;
+  background-color: rgba(0, 0, 0, 0.41);
 }
 
 .navigation .nav {
