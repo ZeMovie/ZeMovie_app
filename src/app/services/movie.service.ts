@@ -20,7 +20,7 @@ export class MovieService {
   }
 
   getPopular() {
-    return this._jsonp.get('https://api.themoviedb.org/3/discover/movie?callback=JSONP_CALLBACK&sort_by=popularity.desc&year='+this.year+'&page='+this.page+'&region='+navigator.language+'&language='+navigator.language+'&api_key='+this.apikey)
+    return this._jsonp.get('https://api.themoviedb.org/3/discover/movie?callback=JSONP_CALLBACK&sort_by=popularity.desc&year='+this.year+'&page='+this.page+'&region='+this.region+'&language='+navigator.language+'&api_key='+this.apikey)
       .map(res => res.json());
   }
 
