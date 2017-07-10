@@ -218,6 +218,13 @@ span {
 }
 
 @media (max-width: 768px) {
+  h1 {
+    text-align: center;
+    margin: 45px 0 12px 0;
+  }
+}
+
+@media (max-width: 412px) {
   .poster {
     display: inherit;
     margin: 0;
@@ -265,5 +272,8 @@ span {
     line-height: 30px;
     top: 5%;
     left: 85%;
+  }
+  .col-xs-6 {
+    width: 100%;
   }
 }

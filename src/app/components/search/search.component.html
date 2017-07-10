@@ -1,7 +1,7 @@
 <section id="movies">
   <div class="row">
     <h1>Search</h1>
-    <div *ngFor="let movie of this._searchService.searchRes;let i=index" class="col-sm-6 col-md-4 col-lg-3 mobile">
+    <div *ngFor="let movie of this._searchService.searchRes;let i=index" class="col-xs-6 col-sm-6 col-md-4 col-lg-3 mobile">
       <div class="movie">
         <div class="poster">
           <div class="overlay">
@@ -14,8 +14,8 @@
           </div>
           <a routerLink="/movie/{{movie.id}}">
             <img class="loading" src="/assets/poster.jpg">
-            <img *ngIf="movie.backdrop_path && innerHeight <= 768" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.backdrop_path}}">
-            <img *ngIf="movie.poster_path && innerHeight > 768" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+            <img *ngIf="movie.backdrop_path && app.innerWidth <= 412" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.backdrop_path}}">
+            <img *ngIf="movie.poster_path && app.innerWidth > 412" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
           </a>
           <p class="note">{{movie.vote_average}}</p>
         </div>

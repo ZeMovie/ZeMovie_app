@@ -15,13 +15,8 @@ export class WatchlistComponent {
   idmovie: Array<number>;
   result: Array<object> = [];
   list: any;
-  innerHeight: any;
-  innerWidth: any;
 
   constructor(public auth: Auth, public _searchService: SearchService,  private app: AppComponent) {
-    this.innerHeight = (window.screen.height);
-    this.innerWidth = (window.screen.width);
-
     if (document.getElementById("menu").classList.contains("mobile-menu")) {
       app.mobileMenu('close')
     }
@@ -66,8 +61,6 @@ export class WatchlistComponent {
     var todayDate: any = new Date();
     var releaseDate: any = new Date(release_date);
     var difference = Math.round((releaseDate - todayDate) / 86400000); // (1000 * 3600 * 24) = (milliseconde par seconde * seconde par heure * heure par journée)
-
-    console.log(release_date);
 
     if (option == "-") {
       if (difference <= range) {
