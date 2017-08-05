@@ -7,9 +7,10 @@
         <div class="poster">
           <div class="overlay">
             <div *ngIf="auth.authenticated()" class="navmovie" id='nav{{i}}'>
-              <a *ngIf="checkMovie(movie.id)" (click)="this.auth.suppMovie(movie.id)" class="nav-item nav-count-1"><i class="fa fa-trash" aria-hidden="true"></i><span class="invisible">Remove</span></a>
-              <a *ngIf="!checkMovie(movie.id)" (click)="this.auth.addMovie(movie.id)" class="nav-item nav-count-1"><i class="fa fa-binoculars" aria-hidden="true"></i><span class="invisible">add</span></a>
-              <a href="#" class="nav-item nav-count-2"><i class="fa fa-check-circle-o fa-lg" aria-hidden="true"></i><span class="invisible">calendar</span></a>
+              <a *ngIf="checkWatchlist(movie.id)" (click)="this.auth.suppMovie(movie.id)" class="nav-item nav-count-1"><i class="fa fa-trash" aria-hidden="true"></i><span class="invisible">Remove</span></a>
+              <a *ngIf="!checkWatchlist(movie.id) && !checkSeenlist(movie.id)" (click)="this.auth.addMovie(movie.id)" class="nav-item nav-count-1"><i class="fa fa-binoculars" aria-hidden="true"></i><span class="invisible">add</span></a>
+              <a *ngIf="!checkSeenlist(movie.id)" (click)="this.auth.addSeenMovie(movie.id)" class="nav-item nav-count-2"><i class="fa fa-check-circle-o fa-lg" aria-hidden="true"></i><span class="invisible">Seen</span></a>
+              <a *ngIf="checkSeenlist(movie.id)" (click)="this.auth.suppSeenMovie(movie.id)" class="nav-item nav-count-2"><i class="fa fa-ban fa-lg" aria-hidden="true"></i><span class="invisible">Unseen</span></a>
               <a (click)="this.navMovie('nav'+i)" class="mask">+</a>
             </div>
           </div>

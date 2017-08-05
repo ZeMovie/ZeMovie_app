@@ -11,6 +11,8 @@
             <div class="overlay">
               <div class="navmovie" id='nav{{i}}'>
                 <a (click)="this.auth.suppMovie(movie.id);newWatchList()" class="nav-item nav-count-1"><i class="fa fa-trash" aria-hidden="true"></i><span class="invisible">Remove</span></a>
+                <a (click)="this.auth.addSeenMovie(movie.id);newWatchList()" class="nav-item nav-count-2"><i class="fa fa-check-circle-o fa-lg" aria-hidden="true"></i><span class="invisible">Seen</span></a>
+                <a (click)="this.navMovie('nav'+i)" class="mask">+</a>
               </div>
             </div>
             <a routerLink="/movie/{{movie.id}}">

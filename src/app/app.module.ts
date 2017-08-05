@@ -20,6 +20,7 @@ import { MovieComponent } from './components/movie/movie.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { SearchComponent } from './components/search/search.component';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
+import { SeenlistComponent } from './components/seenlist/seenlist.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -34,6 +35,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         MovieComponent,
         ProfilComponent,
         WatchlistComponent,
+        SeenlistComponent,
         SearchComponent,
     ],
     imports: [

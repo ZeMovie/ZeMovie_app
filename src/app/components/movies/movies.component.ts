@@ -18,12 +18,8 @@ export class MoviesComponent {
   search: Array<Object>;
   showed: number = 12;
   maxpages: number;
-  innerHeight: any;
-  innerWidth: any;
 
   constructor(public _movieService: MovieService, public _searchService: SearchService, public router: Router, private auth: Auth, private app: AppComponent) {
-    this.innerHeight = (window.screen.height);
-    this.innerWidth = (window.screen.width);
 
     if (document.getElementById("menu").classList.contains("mobile-menu")) {
       app.mobileMenu('close')
@@ -119,10 +115,26 @@ export class MoviesComponent {
     }
   }
 
-  checkMovie(idmovie) {
+  checkWatchlist(idmovie) {
     if (this.auth.userProfile.user_metadata) {
       if (this.auth.userProfile.user_metadata.watchlist) {
         var mymovies = this.auth.userProfile.user_metadata.watchlist;
+        for (let movie of mymovies) {
+          if (movie == idmovie) {
+            return true;
+          }
+        }
+        return false;
+      } else {
+        return false;
+      }
+    }
+  }
+
+  checkSeenlist(idmovie) {
+    if (this.auth.userProfile.user_metadata) {
+      if (this.auth.userProfile.user_metadata.seenlist) {
+        var mymovies = this.auth.userProfile.user_metadata.seenlist;
         for (let movie of mymovies) {
           if (movie == idmovie) {
             return true;

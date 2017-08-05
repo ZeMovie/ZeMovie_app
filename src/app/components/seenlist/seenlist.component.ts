@@ -5,12 +5,12 @@ import { AppComponent } from '../../app.component';
 
 @Component({
   moduleId: module.id,
-  selector: 'watchlist',
-  templateUrl: './watchlist.component.html',
-  styleUrls: ['./watchlist.component.css']
+  selector: 'seenlist',
+  templateUrl: './seenlist.component.html',
+  styleUrls: ['./seenlist.component.css']
 })
 
-export class WatchlistComponent {
+export class SeenlistComponent {
   profile: any;
   idmovie: Array<number>;
   result: Array<object> = [];
@@ -22,8 +22,8 @@ export class WatchlistComponent {
     }
 
     if (this.auth.userProfile.user_metadata) {
-      if (auth.userProfile.user_metadata.watchlist) {
-        this.idmovie = auth.userProfile.user_metadata.watchlist;
+      if (auth.userProfile.user_metadata.seenlist) {
+        this.idmovie = auth.userProfile.user_metadata.seenlist;
         for (let value of this.idmovie) {
           this._searchService.searchMovie(value).subscribe(res => {
             this.result.push(res);
@@ -32,15 +32,15 @@ export class WatchlistComponent {
       }
     } else {
       auth.userProfile.user_metadata = new Object();
-      auth.userProfile.user_metadata.watchlist = [];
-      console.log(auth.userProfile.user_metadata.watchlist);
+      auth.userProfile.user_metadata.seenlist = [];
+      console.log(auth.userProfile.user_metadata.seenlist);
       this.result = null;
     }
   }
 
-  newWatchList() {
+  newSeenList() {
     this.result = [];
-    this.idmovie = this.auth.userProfile.user_metadata.watchlist;
+    this.idmovie = this.auth.userProfile.user_metadata.seenlist;
     for (let value of this.idmovie) {
       this._searchService.searchMovie(value).subscribe(res => {
         this.result.push(res);
@@ -54,30 +54,6 @@ export class WatchlistComponent {
       document.getElementById(idmenu).classList.remove("active");
     } else {
       document.getElementById(idmenu).classList.add("active");
-    }
-  }
-
-  // Verification de la date pour la sortie
-  checkDate(release_date, range, option) {
-    var todayDate: any = new Date();
-    var releaseDate: any = new Date(release_date);
-    var difference = Math.round((releaseDate - todayDate) / 86400000); // (1000 * 3600 * 24) = (milliseconde par seconde * seconde par heure * heure par journée)
-
-    if (option == "-") {
-      if (difference <= range) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
-      if (difference >= range) {
-        return true;
-      }
-      else {
-        return false;
-      }
     }
   }
 }

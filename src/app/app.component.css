@@ -190,6 +190,7 @@ a {
   }
   /*formate le menu pour mobile*/
   .navigation {
+    position: static;
     display: none;
     width: 100%;
     background-image: linear-gradient(to right, #161d23, #28536f);

@@ -13,7 +13,7 @@
     <li routerLinkActive="active"><a routerLink="upcoming">Upcoming</a></li>
     <li *ngIf="auth.authenticated()" class="nav-category text-uppercase">my movies</li>
     <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="watchlist">Watchlist</a></li>
-    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="watched">Watched!</a></li>
+    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="watched">Watched</a></li>
     <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="archives">Archives</a></li>
     <li *ngIf="auth.authenticated()" class="nav-category text-uppercase">agenda</li>
     <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="feature">Feature film</a></li>
@@ -24,7 +24,7 @@
   </ul>
 </div>
 
-<div class="container" (window:resize)="onResize($event)">
+<div class="container" id="container" (window:resize)="onResize($event)">
   <router-outlet></router-outlet>
 </div>
 

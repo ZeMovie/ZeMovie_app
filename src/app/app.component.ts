@@ -43,10 +43,12 @@ export class AppComponent {
       document.getElementById("menu").classList.add("mobile-menu");
       document.getElementById("close-menu").classList.remove("hide");
       document.getElementById("open-menu").classList.add("hide");
+      document.getElementById("container").classList.add("hide");
     } else {
       document.getElementById("menu").classList.remove("mobile-menu");
       document.getElementById("close-menu").classList.add("hide");
       document.getElementById("open-menu").classList.remove("hide");
+      document.getElementById("container").classList.remove("hide");
     }
   }
 }

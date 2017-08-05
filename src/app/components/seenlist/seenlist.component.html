@@ -1,0 +1,30 @@
+<section id="movies">
+  <div class="row">
+    <h1>Watched Movies</h1>
+
+    <!-- Affiche les films déjà vues-->
+    <ng-container *ngFor="let movie of result;let i=index">
+      <div class="movie">
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 mobile">
+          <div class="poster">
+            <div class="overlay">
+              <div class="navmovie" id='nav{{i}}'>
+                <a (click)="this.auth.suppSeenMovie(movie.id);newSeenList()" class="nav-item nav-count-2"><i class="fa fa-ban fa-lg" aria-hidden="true"></i><span class="invisible">Unseen</span></a>
+              </div>
+            </div>
+            <a routerLink="/movie/{{movie.id}}">
+              <img class="loading" src="/assets/poster.jpg">
+              <img *ngIf="movie.backdrop_path && app.innerWidth <= 412" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.backdrop_path}}">
+              <img *ngIf="movie.poster_path && app.innerWidth > 412" class="thumbnail" src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+            </a>
+            <p class="note">{{movie.vote_average}}</p>
+          </div>
+          <h2 class="title">{{movie.title}}</h2>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+
+  <div *ngIf="!result">Ajouter d'abord des films a vos favoris</div>
+</section>

@@ -113,4 +113,56 @@ export class Auth {
       );
   }
 
+  public addSeenMovie(movieid: number) {
+    for (let movie in this.userProfile.user_metadata.watchlist) {
+      if (this.userProfile.user_metadata.watchlist[movie] == movieid) {
+        this.userProfile.user_metadata.watchlist.splice(movie, 1);
+        localStorage.setItem('profile', JSON.stringify(this.userProfile));
+      }
+    }
+    if (typeof this.userProfile.user_metadata.seenlist !== 'undefined') {
+      this.userProfile.user_metadata.seenlist.push(movieid);
+      localStorage.setItem('profile', JSON.stringify(this.userProfile));
+    }
+    var headers: any = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    };
+    var data: any = JSON.stringify({ "user_metadata": { "watchlist": this.userProfile.user_metadata.watchlist, "seenlist": this.userProfile.user_metadata.seenlist } });
+    var userid = this.userProfile.user_id;
+    this.authHttp.patch('https://zemovie.eu.auth0.com/api/v2/users/' + userid, data, { headers: headers })
+      .map(response => response.json())
+      .subscribe(
+      response => {
+        this.userProfile = response;
+        localStorage.setItem('profile', JSON.stringify(response));
+      },
+      err => console.log(err)
+      );
+  }
+
+  public suppSeenMovie(movieid: number) {
+    for (let movie in this.userProfile.user_metadata.seenlist) {
+      if (this.userProfile.user_metadata.seenlist[movie] == movieid) {
+        this.userProfile.user_metadata.seenlist.splice(movie, 1);
+        localStorage.setItem('profile', JSON.stringify(this.userProfile));
+      }
+    }
+    var headers: any = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    };
+    var data: any = JSON.stringify({ "user_metadata": { "seenlist": this.userProfile.user_metadata.seenlist } });
+    var userid = this.userProfile.user_id;
+    this.authHttp.patch('https://zemovie.eu.auth0.com/api/v2/users/' + userid, data, { headers: headers })
+      .map(response => response.json())
+      .subscribe(
+      response => {
+        this.userProfile = response;
+        localStorage.setItem('profile', JSON.stringify(response));
+      },
+      err => console.log(err)
+      );
+  }
+
 }
