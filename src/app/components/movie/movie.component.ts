@@ -36,7 +36,7 @@ export class MovieComponent implements OnInit {
         this.movie = res;
         this.credit = res.credits.cast;
         if (res.runtime) {
-          this.runtime = Math.round(res.runtime / 60) + "h" + (res.runtime - (Math.round(res.runtime / 60) * 60)) + "min";
+          this.runtime = Math.floor(res.runtime / 60) + "h" + (res.runtime - (Math.floor(res.runtime / 60) * 60)) + "min";
         }
         /* Calcul du nb de slide necessaire pour afficher nbimage par slide*/
         this.nbslide = Math.round(this.credit.length / this.nbimage);
