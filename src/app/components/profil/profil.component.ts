@@ -30,7 +30,6 @@ export class ProfilComponent {
     for (let value of this.idMovie) {
       this._searchService.searchMovie(value).subscribe(res => {
         this.totalRuntime = this.totalRuntime + res.runtime;
-        console.log(this.totalRuntime);
 
         if (this.totalRuntime < 60 ){
           this.watchedTime = this.totalRuntime+" min";
