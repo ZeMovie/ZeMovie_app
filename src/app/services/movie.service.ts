@@ -32,4 +32,13 @@ export class MovieService {
     return this._jsonp.get('https://api.themoviedb.org/3/movie/' + idmovie + '?api_key=' + this.apikey+ '&language='+navigator.language +'&callback=JSONP_CALLBACK&append_to_response=credits')
       .map(res => res.json());
   }
+
+  // Permet l'affichage du nombre de jour avant la sortie
+  countdown(release_date){
+    var todayDate: any = new Date();
+    var releaseDate: any = new Date(release_date);var releaseDate : any
+    var difference = Math.ceil((releaseDate - todayDate) / 86400000);
+
+    return difference;
+  }
 }

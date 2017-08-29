@@ -3,7 +3,7 @@
     <h1>Watchlist</h1>
 
     <!-- Affiche les films déjà sorties-->
-    <h2 class="section">Already out :</h2>
+    <h2 class="section" *ngIf="result.length != 0">Already out :</h2>
     <ng-container *ngFor="let movie of result;let i=index">
       <div class="movie" *ngIf="checkDate(movie.release_date, 0, '-')">
         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 mobile">
@@ -30,7 +30,7 @@
 
   <!-- Affiche les films - 30jours -->
   <div class="row">
-    <h2 class="section">Release under 30 days :</h2>
+    <h2 class="section" *ngIf="result.length != 0">Release under 30 days :</h2>
     <ng-container *ngFor="let movie of result;let i=index">
       <div class="movie" *ngIf="checkDate(movie.release_date, 30, '-') && checkDate(movie.release_date, 0, '+')">
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 mobile">
@@ -48,6 +48,7 @@
             <p class="note">{{movie.vote_average}}</p>
           </div>
           <h2 class="title">{{movie.title}}</h2>
+          <p>{{_movieService.countdown(movie.release_date)}} days left</p>
         </div>
       </div>
     </ng-container>
@@ -55,7 +56,7 @@
 
   <!-- Affiche les films + 30jours -->
   <div class="row">
-    <h2 class="section">Release above 30 days :</h2>
+    <h2 class="section" *ngIf="result.length != 0">Release above 30 days :</h2>
     <ng-container *ngFor="let movie of result;let i=index">
       <div class="movie" *ngIf="checkDate(movie.release_date, 30, '+')">
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 mobile">
@@ -73,9 +74,10 @@
             <p class="note">{{movie.vote_average}}</p>
           </div>
           <h2 class="title">{{movie.title}}</h2>
+          <p>{{_movieService.countdown(movie.release_date)}} days left</p>
         </div>
       </div>
     </ng-container>
   </div>
-  <div *ngIf="!result">Ajouter d'abord des films a vos favoris</div>
+  <div *ngIf="result.length == 0">Ajouter d'abord des films à vos favoris</div>
 </section>

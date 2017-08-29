@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Auth } from '../../services/auth.service';
 import {SearchService} from '../../services/search.service';
+import { MovieService } from '../../services/movie.service';
 import { AppComponent } from '../../app.component';
 
 @Component({
@@ -16,7 +17,7 @@ export class WatchlistComponent {
   result: Array<object> = [];
   list: any;
 
-  constructor(public auth: Auth, public _searchService: SearchService,  private app: AppComponent) {
+  constructor(public auth: Auth, public _searchService: SearchService,  private _movieService: MovieService, private app: AppComponent) {
     if (document.getElementById("menu").classList.contains("mobile-menu")) {
       app.mobileMenu('close')
     }
@@ -33,7 +34,6 @@ export class WatchlistComponent {
     } else {
       auth.userProfile.user_metadata = new Object();
       auth.userProfile.user_metadata.watchlist = [];
-      console.log(auth.userProfile.user_metadata.watchlist);
       this.result = null;
     }
   }
@@ -61,8 +61,9 @@ export class WatchlistComponent {
   checkDate(release_date, range, option) {
     var todayDate: any = new Date();
     var releaseDate: any = new Date(release_date);
-    var difference = Math.round((releaseDate - todayDate) / 86400000); // (1000 * 3600 * 24) = (milliseconde par seconde * seconde par heure * heure par journée)
+    var difference = Math.ceil((releaseDate - todayDate) / 86400000); // (1000 * 3600 * 24) = (milliseconde par seconde * seconde par heure * heure par journée)
 
+    // Affichage si + petit ou egal au range
     if (option == "-") {
       if (difference <= range) {
         return true;
@@ -71,6 +72,8 @@ export class WatchlistComponent {
         return false;
       }
     }
+
+    // Affichage si + grand que le range
     else {
       if (difference >= range) {
         return true;

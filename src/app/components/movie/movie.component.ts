@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Routes, ActivatedRoute } from '@angular/router';
 import { MovieService } from '../../services/movie.service';
-import {SearchService} from '../../services/search.service';
+import { SearchService} from '../../services/search.service';
 
 
 @Component({

@@ -22,11 +22,14 @@ export class ProfilComponent {
     if (document.getElementById("menu").classList.contains("mobile-menu")) {
       app.mobileMenu('close')
     }
-    this.nbFollowers = auth.userProfile.user_metadata.followers.length;
+    // Affichage du nombre de followers
+    this.nbFollowers = auth.userProfile.user_metadata.followers.length
+
+    // Affichage du nombre d'amis
     this.nbFriends = auth.userProfile.user_metadata.friends.length;
     this.idMovie = auth.userProfile.user_metadata.seenlist;
 
-    //
+    // Affichage du temps passé devant les films par l'utilisateur
     for (let value of this.idMovie) {
       this._searchService.searchMovie(value).subscribe(res => {
         this.totalRuntime = this.totalRuntime + res.runtime;
