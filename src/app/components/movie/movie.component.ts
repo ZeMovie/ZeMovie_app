@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Routes, ActivatedRoute } from '@angular/router';
 import { MovieService } from '../../services/movie.service';
 import { SearchService } from '../../services/search.service';
+import { AppComponent } from '../../app.component';
+
 
 
 @Component({
@@ -22,13 +24,14 @@ export class MovieComponent {
   runtime: string;
   videoId = null;
   player: YT.Player;
+  ytEvent : any;
 
 
-  constructor(private router: ActivatedRoute, private _searchService: SearchService, private _movieService: MovieService) {
-    if (screen.height <= 768) {
+  constructor(private router: ActivatedRoute, private _searchService: SearchService, private _movieService: MovieService, private app: AppComponent) {
+    if (this.app.innerWidth <= 768) {
       this.nbimage = 2;
     }
-    
+
     this.router.params.subscribe((params) => {
       let id = params['id'];
       this._movieService.getMovieDetails(id).subscribe(res => {
@@ -67,7 +70,12 @@ export class MovieComponent {
       document.getElementById("popup").classList.remove("show");
       this.player.pauseVideo();
     } else {
+      if (this.app.innerWidth <= 768) {
+        document.getElementById("popup").classList.add("show");
+        this.player.playVideo();
+      }else{
       document.getElementById("popup").classList.add("show");
+    }
     }
   }
 
@@ -75,6 +83,7 @@ export class MovieComponent {
     this.player = player;
   }
   onStateChange(event) {
+    this.ytEvent = event.data;
   }
 
 }
