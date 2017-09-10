@@ -32,10 +32,10 @@
       <!-- end avatars -->
     </div>
     <!-- end column2 -->
-    <div id="popup">
+    <div *ngIf="this.videoId != null" id="popup">
       <youtube-player
-      [width]="700"
-      [height]="400"
+      [width]=this.playerW
+      [height]=this.playerH
       [videoId]="videoId"
       (ready)="savePlayer($event)"
       (change)="onStateChange($event)"

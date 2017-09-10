@@ -180,9 +180,9 @@
 }
 
 youtube-player {
-  top: 30%;
-  position: absolute;
-  left: 35%;
+  position: absolute; /* postulat de départ */
+  top: 50%; left: 50%; /* à 50%/50% du parent référent */
+  transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
 }
 
 .show {
@@ -283,12 +283,5 @@ youtube-player {
     top: 370px;
     width: 110px;
     height: 29px;
-  }
-  youtube-player {
-    top: 27%;
-    position: absolute;
-    left: -20%;
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
   }
 }

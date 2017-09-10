@@ -25,11 +25,19 @@ export class MovieComponent {
   videoId = null;
   player: YT.Player;
   ytEvent : any;
+  playerH : any;
+  playerW : any;
 
 
   constructor(private router: ActivatedRoute, private _searchService: SearchService, private _movieService: MovieService, private app: AppComponent) {
+
+    this.playerW = this.app.innerWidth * 0.5;
+    this.playerH = this.playerW * 0.6;
+
     if (this.app.innerWidth <= 768) {
       this.nbimage = 2;
+      this.playerW = this.app.innerWidth;
+      this.playerH = this.playerW * 0.6;
     }
 
     this.router.params.subscribe((params) => {
