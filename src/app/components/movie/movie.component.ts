@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Routes, ActivatedRoute } from '@angular/router';
 import { MovieService } from '../../services/movie.service';
-import { SearchService} from '../../services/search.service';
+import { SearchService } from '../../services/search.service';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { SearchService} from '../../services/search.service';
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.css']
 })
-export class MovieComponent implements OnInit {
+export class MovieComponent {
   movie: Object;
   credit: any;
   res: Object;
@@ -20,15 +20,15 @@ export class MovieComponent implements OnInit {
   actor: Array<object> = [];
   actors: Array<object> = [];
   runtime: string;
+  videoId = null;
+  player: YT.Player;
 
 
   constructor(private router: ActivatedRoute, private _searchService: SearchService, private _movieService: MovieService) {
     if (screen.height <= 768) {
       this.nbimage = 2;
     }
-  }
-
-  ngOnInit() {
+    
     this.router.params.subscribe((params) => {
       let id = params['id'];
       this._movieService.getMovieDetails(id).subscribe(res => {
@@ -51,7 +51,30 @@ export class MovieComponent implements OnInit {
           this.actors.push(this.actor);
           this.actor = [];
         }
-      })
+      });
+      this._movieService.getVideos(id).subscribe(res => {
+        if (res.results[0] != null) {
+          this.videoId = res.results[0].key;
+        } else {
+          this.videoId = null;
+        }
+      });
     });
   }
+
+  trailer() {
+    if (document.getElementById("popup").classList.contains("show")) {
+      document.getElementById("popup").classList.remove("show");
+      this.player.pauseVideo();
+    } else {
+      document.getElementById("popup").classList.add("show");
+    }
+  }
+
+  savePlayer(player) {
+    this.player = player;
+  }
+  onStateChange(event) {
+  }
+
 }

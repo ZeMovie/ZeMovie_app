@@ -12,6 +12,7 @@ import { Auth } from './services/auth.service';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Http, RequestOptions } from '@angular/http';
 import { CarouselModule,CollapseModule,PaginationModule,TooltipModule } from 'ngx-bootstrap';
+import { YoutubePlayerModule } from 'ng2-youtube-player';
 
 
 import { AppComponent } from './app.component';
@@ -45,6 +46,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         JsonpModule,
         routing,
         BrowserAnimationsModule,
+        YoutubePlayerModule,
         ToastModule.forRoot(),
         CarouselModule.forRoot(),
         CollapseModule.forRoot(),

@@ -1,25 +1,23 @@
 <div *ngIf="movie">
   <div class="background">
-    <img src="http://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}" class="back" />
     <img src="http://image.tmdb.org/t/p/w300{{movie.poster_path}}" alt="cover" class="cover" />
   </div>
   <div class="hero">
     <img src="http://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}" />
-    <div class="details">
-      <div class="title1">{{movie.title}}</div>
-      <span *ngIf="runtime" id="runtime">{{runtime}}</span>
-      <span *ngIf="runtime" class="separator">/</span>
-      <span class="likes"><i class="fa fa-heart" aria-hidden="true"></i> {{movie.vote_count}} likes</span>
-    </div>
-    <!-- end details -->
+    <div class="title1">{{movie.title}}</div>
   </div>
-  <!-- end hero -->
   <div class="description">
     <div class="column1">
       <span *ngFor="let genre of movie.genres" class="tag">{{genre.name}}<span class="separator">,</span></span>
     </div>
     <!-- end column1 -->
     <div class="column2">
+      <div class="more">
+        <div *ngIf="this.videoId != null" (click)="this.trailer()" class="button">Trailer</div><br />
+      </div>
+      <span *ngIf="runtime" id="runtime">{{runtime}}</span>
+      <span *ngIf="runtime" class="separator">/</span>
+      <span class="likes"><i class="fa fa-heart" aria-hidden="true"></i> {{movie.vote_count}} likes</span>
       <p class="release"> release: {{movie.release_date}}</p>
       <p class="overview_title"> Overview: </p>
       <p class="overview">{{movie.overview}}</p>
@@ -34,6 +32,17 @@
       <!-- end avatars -->
     </div>
     <!-- end column2 -->
+    <div id="popup">
+      <youtube-player
+      [width]="700"
+      [height]="400"
+      [videoId]="videoId"
+      (ready)="savePlayer($event)"
+      (change)="onStateChange($event)"
+    ></youtube-player>
+    <i class="fa fa-times" aria-hidden="true" (click)="this.trailer()"></i>
+    </div>
+    <!-- end popup -->
   </div>
   <!-- end description -->
 </div>
