@@ -7,21 +7,48 @@ img {
   margin-right: 0px;
 }
 
+/*
+ *  Textes
+*/
 h1 {
   font-size: 33px;
   text-align: left;
   margin: 31px 0 50px 15px;
+  text-transform: uppercase;
 }
 
 h2 {
-  font-size: 13px;
+  font-size: 1.1em;
+  color: #0093ab;
   font-weight: bold;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
   margin-top: 5px;
   margin-bottom: 40px;
+
+  line-height: 150%;
+  text-indent: 5em;
 }
+
+h3 {
+  font-size: 1em;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 10px;
+  margin-bottom: 0.1em;
+}
+
+.day-left{
+  color: #fff;
+  background: #f23363;
+  position: relative;
+  z-index: 90;
+  text-align: center;
+}
+
 
 .movie {
   padding-right: 30px;
@@ -131,9 +158,7 @@ span {
   text-align: center;
 }
 
-
 /*Movie Menu*/
-
 .navmovie {
   z-index: 20;
   left: 15px;
@@ -217,12 +242,33 @@ span {
   transform: rotate(-135deg);
 }
 
+.bg-banner{
+  background-color: #fff;
+  width: 100%;
+  line-height: 50%;
+  text-indent: 20px;
+}
+
+.movie-info{
+  margin-bottom: 40px;
+}
+
+.movie-info p{
+  font-size: 0.8em;
+}
+
+
+/*******************************************************
+ *  Responsive *****************************************
+ *******************************************************/
+
 @media (max-width: 768px) {
   h1 {
     text-align: center;
     margin: 45px 0 12px 0;
   }
 }
+
 
 @media (max-width: 412px) {
   .poster {
@@ -234,6 +280,9 @@ span {
   h1 {
     text-align: center;
     margin: 45px 0 12px 0;
+  }
+  h2{
+    text-indent: 1em;
   }
   .row {
     margin-left: 0;
