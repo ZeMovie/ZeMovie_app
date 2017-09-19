@@ -15,6 +15,8 @@ import { AppComponent } from '../../app.component';
 export class MovieComponent {
   movie: Object;
   credit: any;
+  videos: any;
+  dates : any;
   res: Object;
   nbslide: number;
   nbimage: number = 5;
@@ -46,6 +48,13 @@ export class MovieComponent {
         /* Recuperation des acteurs du film */
         this.movie = res;
         this.credit = res.credits.cast;
+        this.videos = res.videos;
+        if (this.videos.results[0] != null) {
+          this.videoId = this.videos.results[0].key;
+        } else {
+          this.videoId = null;
+        }
+        this.dates = res.release_dates;
         if (res.runtime) {
           this.runtime = Math.floor(res.runtime / 60) + "h" + (res.runtime - (Math.floor(res.runtime / 60) * 60)) + "min";
         }
@@ -61,13 +70,6 @@ export class MovieComponent {
           }
           this.actors.push(this.actor);
           this.actor = [];
-        }
-      });
-      this._movieService.getVideos(id).subscribe(res => {
-        if (res.results[0] != null) {
-          this.videoId = res.results[0].key;
-        } else {
-          this.videoId = null;
         }
       });
     });

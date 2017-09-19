@@ -14,9 +14,6 @@
     <li *ngIf="auth.authenticated()" class="nav-category text-uppercase">my movies</li>
     <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="watchlist">Watchlist</a></li>
     <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="watched">Watched</a></li>
-    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="archives">Archives</a></li>
-    <li *ngIf="auth.authenticated()" class="nav-category text-uppercase">agenda</li>
-    <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="feature">Feature film</a></li>
     <li *ngIf="auth.authenticated()" class="nav-category text-uppercase">Profil</li>
     <li *ngIf="auth.authenticated()" routerLinkActive="active"><a routerLink="profil">Settings</a></li>
     <li *ngIf="auth.authenticated()" routerLinkActive="active"><a (click)="auth.logout()">log Out</a></li>

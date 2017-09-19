@@ -18,7 +18,9 @@
       <span *ngIf="runtime" id="runtime">{{runtime}}</span>
       <span *ngIf="runtime" class="separator">/</span>
       <span class="likes"><i class="fa fa-heart" aria-hidden="true"></i> {{movie.vote_count}} likes</span>
-      <p class="release"> release: {{movie.release_date}}</p>
+      <ng-container *ngFor="let date of dates.results;let i=index">
+        <p *ngIf="dates.results[i].iso_3166_1 =='FR'" class="release"> release: {{_movieService.localdate(dates.results[i].release_dates[0].release_date)}}</p>
+      </ng-container>
       <p class="overview_title"> Overview: </p>
       <p class="overview">{{movie.overview}}</p>
       <carousel class="avatars">
