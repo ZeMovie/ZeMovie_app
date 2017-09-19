@@ -44,9 +44,14 @@ h3 {
 .day-left{
   color: #fff;
   background: #f23363;
-  position: relative;
+  position: absolute;
   z-index: 90;
+  bottom: 10px;
+  width: 100%;
   text-align: center;
+}
+.day-left>p{
+  margin: 0;
 }
 
 

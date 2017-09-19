@@ -16,7 +16,7 @@
                 <a (click)="this.auth.suppMovie(movie.id);newWatchList()" class="nav-item nav-count-1"><i class="fa fa-trash" aria-hidden="true"></i><span class="invisible">Remove</span></a>
                 <a (click)="this.auth.addSeenMovie(movie.id);newWatchList()" class="nav-item nav-count-2"><i class="fa fa-check-circle-o fa-lg" aria-hidden="true"></i><span class="invisible">Seen</span></a>
                 <a (click)="this.navMovie('nav'+i)" class="mask">+</a>
-              </div>²²
+              </div>
             </div>
             <a routerLink="/movie/{{movie.id}}">
                 <img class="loading" src="/assets/poster.jpg">
@@ -27,7 +27,7 @@
           </div>
           <div class="movie-info">
             <h3>{{movie.title}}</h3>
-            <p *ngIf="movie.genres || movie.release_date">{{movie.genres[0].name}} | {{movie.release_date}}</p>
+            <p *ngIf="movie.genres || movie.release_date">{{movie.genres[0].name}} | {{_movieService.localDate(movie.release_date)}}</p>
           </div>
         </div>
       </div>
@@ -41,7 +41,7 @@
   <div class="row">
     <ng-container *ngFor="let movie of result;let i=index">
       <div class="movie" *ngIf="checkDate(movie.release_date, 30, '-') && checkDate(movie.release_date, 0, '+')">
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 mobile">
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 mobile">
           <div class="poster">
             <div class="overlay">
               <div class="navmovie" id='nav{{i}}'>
@@ -60,7 +60,7 @@
           </div>
           <div class="movie-info">
             <h3>{{movie.title}}</h3>
-            <p *ngIf="movie.genres || movie.release_date">{{movie.genres[0].name}} | {{movie.release_date}}</p>
+            <p *ngIf="movie.genres || movie.release_date">{{movie.genres[0].name}} | {{_movieService.localDate(movie.release_date)}}</p>
           </div>
         </div>
       </div>
@@ -74,7 +74,7 @@
   <div class="row">
     <ng-container *ngFor="let movie of result;let i=index">
       <div class="movie" *ngIf="checkDate(movie.release_date, 30, '+')">
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 mobile">
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 mobile">
           <div class="poster">
             <div class="overlay">
               <div class="navmovie" id='nav{{i}}'>
@@ -93,7 +93,7 @@
           </div>
           <div class="movie-info">
             <h3>{{movie.title}}</h3>
-            <p *ngIf="movie.genres || movie.release_date">{{movie.genres[0].name}} | {{movie.release_date}}</p>
+            <p *ngIf="movie.genres || movie.release_date">{{movie.genres[0].name}} | {{_movieService.localDate(movie.release_date)}}</p>
           </div>
         </div>
       </div>

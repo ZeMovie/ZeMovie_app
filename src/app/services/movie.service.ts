@@ -41,9 +41,15 @@ export class MovieService {
   // Permet l'affichage du nombre de jour avant la sortie
   countdown(release_date){
     var todayDate: any = new Date();
-    var releaseDate: any = new Date(release_date);var releaseDate : any
+    var releaseDate: any = new Date(release_date);
     var difference = Math.ceil((releaseDate - todayDate) / 86400000);
 
     return difference;
+  }
+
+  //Permet de formater la date en FR
+  localDate(release_date){
+    var releaseDate: any = new Date(release_date);
+    return releaseDate.toLocaleDateString();
   }
 }

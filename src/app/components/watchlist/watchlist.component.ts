@@ -48,7 +48,7 @@ export class WatchlistComponent {
     }
   }
 
-// Ouvre ou ferme le menu des films
+  // Ouvre ou ferme le menu des films
   navMovie(idmenu) {
     if (document.getElementById(idmenu).classList.contains("active")) {
       document.getElementById(idmenu).classList.remove("active");
@@ -75,7 +75,7 @@ export class WatchlistComponent {
 
     // Affichage si + grand que le range
     else {
-      if (difference >= range) {
+      if (difference > range) {
         return true;
       }
       else {
