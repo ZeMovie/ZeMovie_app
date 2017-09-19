@@ -29,12 +29,7 @@ export class MovieService {
   }
 
   getMovieDetails(idmovie: number) {
-    return this._jsonp.get('https://api.themoviedb.org/3/movie/' + idmovie + '?api_key=' + this.apikey+ '&language='+navigator.language +'&callback=JSONP_CALLBACK&append_to_response=credits')
-      .map(res => res.json());
-  }
-
-  getVideos(idmovie: number) {
-    return this._jsonp.get('https://api.themoviedb.org/3/movie/' + idmovie + '/videos?api_key=' + this.apikey+ '&language='+navigator.language +'&callback=JSONP_CALLBACK&append_to_response=credits')
+    return this._jsonp.get('https://api.themoviedb.org/3/movie/' + idmovie + '?api_key=' + this.apikey+ '&language='+navigator.language +'&callback=JSONP_CALLBACK&append_to_response=credits,release_dates,videos')
       .map(res => res.json());
   }
 
