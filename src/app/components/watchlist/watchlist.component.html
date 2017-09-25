@@ -4,7 +4,7 @@
   </div>
   <!-- Affiche les films déjà sorties-->
   <div class="bg-banner">
-    <h2 class="section" *ngIf="result.length != 0">Already out :</h2>
+    <h2 class="section" *ngIf="result && result.length != 0">Already out :</h2>
   </div>
   <div class="row">
     <ng-container *ngFor="let movie of result;let i=index">
@@ -13,7 +13,7 @@
           <div class="poster">
             <div class="overlay">
               <div class="navmovie" id='nav{{i}}'>
-                <a (click)="this.auth.suppMovie(movie.id);newWatchList()" class="nav-item nav-count-1"><i class="fa fa-trash" aria-hidden="true"></i><span class="invisible">Remove</span></a>
+                <a (click)="this.auth.suppMovie(movie.id);newWatchList(i)" class="nav-item nav-count-1"><i class="fa fa-trash" aria-hidden="true"></i><span class="invisible">Remove</span></a>
                 <a (click)="this.auth.addSeenMovie(movie.id);newWatchList()" class="nav-item nav-count-2"><i class="fa fa-check-circle-o fa-lg" aria-hidden="true"></i><span class="invisible">Seen</span></a>
                 <a (click)="this.navMovie('nav'+i)" class="mask">+</a>
               </div>
@@ -36,7 +36,7 @@
 
   <!-- Affiche les films - 30jours -->
   <div class="bg-banner">
-    <h2 class="section" *ngIf="result.length != 0">Release under 30 days :</h2>
+    <h2 class="section" *ngIf="result && result.length != 0">Release under 30 days :</h2>
   </div>
   <div class="row">
     <ng-container *ngFor="let movie of result;let i=index">
@@ -45,7 +45,7 @@
           <div class="poster">
             <div class="overlay">
               <div class="navmovie" id='nav{{i}}'>
-                <a (click)="this.auth.suppMovie(movie.id);newWatchList()" class="nav-item nav-count-1"><i class="fa fa-trash" aria-hidden="true"></i><span class="invisible">Remove</span></a>
+                <a (click)="this.auth.suppMovie(movie.id);newWatchList(i)" class="nav-item nav-count-1"><i class="fa fa-trash" aria-hidden="true"></i><span class="invisible">Remove</span></a>
               </div>
             </div>
             <a routerLink="/movie/{{movie.id}}">
@@ -69,7 +69,7 @@
 
   <!-- Affiche les films + 30jours -->
   <div class="bg-banner">
-    <h2 class="section" *ngIf="result.length != 0">Release above 30 days :</h2>
+    <h2 class="section" *ngIf="result && result.length != 0">Release above 30 days :</h2>
   </div>
   <div class="row">
     <ng-container *ngFor="let movie of result;let i=index">
@@ -78,7 +78,7 @@
           <div class="poster">
             <div class="overlay">
               <div class="navmovie" id='nav{{i}}'>
-                <a (click)="this.auth.suppMovie(movie.id);newWatchList()" class="nav-item nav-count-1"><i class="fa fa-trash" aria-hidden="true"></i><span class="invisible">Remove</span></a>
+                <a (click)="this.auth.suppMovie(movie.id);newWatchList(i)" class="nav-item nav-count-1"><i class="fa fa-trash" aria-hidden="true"></i><span class="invisible">Remove</span></a>
               </div>
             </div>
             <a routerLink="/movie/{{movie.id}}">
@@ -99,5 +99,5 @@
       </div>
     </ng-container>
   </div>
-  <div *ngIf="result.length == 0">Ajouter d'abord des films à vos favoris</div>
+  <div *ngIf="result && result.length != 0">Ajouter d'abord des films à vos favoris</div>
 </section>
