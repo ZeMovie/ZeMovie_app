@@ -38,14 +38,8 @@ export class WatchlistComponent {
     }
   }
 
-  newWatchList() {
-    this.result = [];
-    this.idmovie = this.auth.userProfile.user_metadata.watchlist;
-    for (let value of this.idmovie) {
-      this._searchService.searchMovie(value).subscribe(res => {
-        this.result.push(res);
-      })
-    }
+  newWatchList(id) {
+    this.result.splice(id, 1);
   }
 
   // Ouvre ou ferme le menu des films

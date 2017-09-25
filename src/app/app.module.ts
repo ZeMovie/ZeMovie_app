@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { routing, appRoutingProviders } from './app.routes';
+import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { CustomOption } from './custom-toastr';
@@ -54,6 +55,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         TooltipModule.forRoot(),
     ],
     providers: [
+        Location, {provide: LocationStrategy, useClass: HashLocationStrategy},
         AuthGuard,
         Auth,
         {provide: AuthHttp, useFactory: authHttpServiceFactory, deps: [Http, RequestOptions]},
